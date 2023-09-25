@@ -118,7 +118,7 @@ export default function Dashboard() {
                         axios
                             .post(baseURLFUND, {
 
-                                amount:amount,
+                                amount:amount * 100,
                                 email:email,
                                 currency:"NGN",
                                 initiate_type: "inline",
