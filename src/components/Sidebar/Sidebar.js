@@ -179,11 +179,11 @@ export default function Sidebar() {
                   <div className="user_profle_side">
                     <div className="user_img"><img className="img-responsive" src={gh} alt="#"/></div>
                     <div className="user_info">
-                      {isMobile === true ? (
-                          <button type="button" onClick={handleMenuClick}
-                                  className="btn btn-primary  ">
-                            <i className="fas fa-times"></i></button>
-                      ) : null}
+                      {/*{isMobile === true ? (*/}
+                      {/*    <button type="button" onClick={handleMenuClick}*/}
+                      {/*            className="btn btn-primary  ">*/}
+                      {/*      <i className="fas fa-times"></i></button>*/}
+                      {/*) : null}*/}
                       <h6>{username}</h6>
 
                       <p><span className="online_animation"></span> Online</p>
@@ -195,14 +195,14 @@ export default function Sidebar() {
                     </div>
                     <div className="sidebar_blog_2">
                     <h4>
-                    <a href="https://play.google.com/store/apps/details?id=com.renomobilemoney"  className="font-weight-bold text-center">
+                    <a href="https://play.google.com/store/apps/details?id=com.a5starcompany.savebills"  className="font-weight-bold text-center">
                     <img width="150" src={playstore} alt="#"/>
 
                     </a>
                     </h4>
                     <ul className="list-unstyled components">
-                    <li className="active">
-                      <Link to="/dashboard" onClick={handleMenuClick}><i className="fa fa-dashboard white_color" ></i> <span>Dashboard</span></Link>
+                    <li className="active" >
+                      <Link onClick={handleMenuClick} to="/dashboard" ><i className="fa fa-dashboard white_color" ></i> <span>Dashboard</span></Link>
                     </li>
 
                     <li className="active">
@@ -228,6 +228,15 @@ export default function Sidebar() {
                     </li>
                     <li>
                     <Link to="/purchase" onClick={handleMenuClick}><i className="fa fa-sticky-note "></i> <span>Bills Invoice</span></Link>
+                    </li> 
+                      <li>
+                    <Link to="/deposit" onClick={handleMenuClick}><i className="fa fa-money"></i> <span>Deposit</span></Link>
+                    </li>
+                      <li>
+                    <Link to="/createlock" onClick={handleMenuClick}><i className="fa fa-lock "></i> <span>Save Money</span></Link>
+                    </li>
+                      <li>
+                    <Link to="/addlock" onClick={handleMenuClick}><i className="fa fa-lock "></i> <span>Add Savings</span></Link>
                     </li>
                     </ul>
                     </div>

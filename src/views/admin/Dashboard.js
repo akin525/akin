@@ -292,7 +292,7 @@ export default function Dashboard() {
                     <div className="col-xl-2 col-sm-4 col-6">
                     <div className="card ov-card">
                     <div className="card-body">
-                    <Link to="/withdraw">
+                    <Link to="/fund">
                     <div className="ana-box">
                     <div className="ic-n-bx">
                     <div className="icon-box bg-primary">
@@ -300,8 +300,8 @@ export default function Dashboard() {
                     </div>
                     </div>
                     <div className="anta-data">
-                    <h5>Withdraw</h5>
-                    <span>from wallet</span>
+                    <h5>Fund</h5>
+                    <span>wallet</span>
                     </div>
                     </div>
                     </Link>

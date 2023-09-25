@@ -3971,3 +3971,50 @@ body.dark-mode .slider:before {
     background-color: #333; /* Handle color in dark mode */
     transform: translateX(26px); /* Move the handle to the right for dark mode */
 }
+/* Common styles for button-pagination */
+.button-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-pagination button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button-pagination button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.button-pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    cursor: default;
+}
+
+.button-pagination button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Responsive styles for button-pagination */
+@media (max-width: 600px) {
+    .button-pagination {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-pagination button {
+        margin: 2px;
+    }
+}
