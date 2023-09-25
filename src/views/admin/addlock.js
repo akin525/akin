@@ -84,9 +84,14 @@ export default function Dashboard({color}) {
 
     return(
         <>
-            {loading ? <div className="loader-container">
-                    <div className="spinner"/>
-                </div> :
+            <div className="container-fluid">
+                <div className="row column_title">
+                    <div className="col-md-12">
+                        <div className="page_title">
+                            <h2>Add To Savings</h2>
+                        </div>
+                    </div>
+                </div>
                 <div className="flex flex-wrap">
                     {datass.map((datab) => (
                         <div className="w-full lg:w-6/12 xl:w-4/12 px-4 mb-3">
@@ -145,7 +150,7 @@ export default function Dashboard({color}) {
                         </div>
                     ))}
                 </div>
-            }
+
 
             <div className="flex flex-wrap mt-4">
                 <div className="w-full mb-12 px-4">
@@ -250,8 +255,10 @@ export default function Dashboard({color}) {
                     </div>
                 </div>
             </div>
-
-
+                    {loading === true ? ( <div className="overlay">
+                        <div className="loader"></div>
+                    </div> ):null}
+                </div>
         </>
     );
 }

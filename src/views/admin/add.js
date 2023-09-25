@@ -188,6 +188,9 @@ export default function Settings() {
           <CardProfile />
         </div>
       </div>
+            {loading === true ? ( <div className="overlay">
+                <div className="loader"></div>
+            </div> ):null}
         </div>
     </>
   );

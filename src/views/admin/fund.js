@@ -15,6 +15,7 @@ import CardStats from "../../components/Cards/CardStats";
 
 export default function Dashboard() {
     const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURLFUND = "https://sandbox-api-d.squadco.com/transaction/initiate";
     const baseURL2 = "https://server.savebills.com.ng/api/auth/fund";
     const [account_number, setaccount_number] = useState("0");
     const [account_number1, setaccount_number1] = useState("0");
@@ -27,8 +28,11 @@ export default function Dashboard() {
     const [name, setName] = useState("");
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
+    const [refid,setrefid] = useState("");
     const [loading, setLoading] = useState(false);
     let token=localStorage.getItem('dataKey');
+   const tokenfun="sandbox_sk_1e60156e0e029ec62daa87e91f5a3b0f1a0923246bec";
+    // setrefid("Fund"+Math.floor((Math.random() * 1000000000) + 1));
 
 
 
@@ -105,60 +109,54 @@ export default function Dashboard() {
     }
 
     const handleSubmit1  = async () =>  {
-
+        try {
         // html: "<h6>Account Number:"+account_number+"</h6><br><h6>Account Name:</h6>"+account_name+"</h6>",
-                if (amount < 0 || amount =="") {
-                    swal({
-                        title: "Ooops..",
-                        text:"Enter a valid amount",
-                        icon: "error",
-                        confirmButtonText: "OK",
-                    })
 
-
-                }else {
                     setLoading(true);
 
 
                         axios
-                            .post(baseURL2, {
+                            .post(baseURLFUND, {
 
-                                userId:userid,
                                 amount:amount,
                                 email:email,
+                                currency:"NGN",
+                                initiate_type: "inline",
+                                transaction_ref:"987564fr55e7",
+                                callback_url:"http://squadco.com",
                             },{
                                 headers:{
-                                    Authorization: `Bearer ${token}`
+                                    Authorization: `Bearer ${tokenfun}`
                                 },
 
                             }).then(response => {
-                            setError("");
-                            setMessage(response);
-                            // setLoading(false);
-                            if (response.data.status === "0") {
+                            setLoading(false);
+                            if (response.data.status == 200) {
                                 setError(response.data.message);
-                                swal({
-                                    title: "Fail",
-                                    text: response.data.message,
-                                    icon: "error",
-                                    confirmButtonText: "OK",
-                                }).then(function () {
-                                    // Redirect the user
-                                    // window.location.href = "/airtime";
-                                });
+
+                                    window.location.href.url = response.data.checkout_url;
 
 
                             }else{
-                                setMessage(response.data.message);
-                                // const [cookies, setCookie] = useCookies(response.data.username);
-                                window.location=response.data.url;
+
+                                Swal.fire({
+                                    title: "error",
+                                    text:response.data,
+                                    icon: "success",
+                                    confirmButtonText: "OK",
+                                })
                             }
                             // setPost(response.data);
                         });
 
-
+        }catch (e) {
+            console.log(e);
+            console.log("e.data");
+            console.log(e.data);
+            setError("An error occured. Check your input and try again");
+        }
                 }
-    }
+
 
 
 
@@ -211,6 +209,10 @@ export default function Dashboard() {
                                     <button type="button" onClick={handleSubmit}
                                             className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
                                         Fund With transfer
+                                    </button>
+                                    <button type="button" onClick={handleSubmit1}
+                                            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                        Fund With card
                                     </button>
                                     {/*<button type="button" onClick={handleSubmit1}*/}
                                     {/*        className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">*/}
