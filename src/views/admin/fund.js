@@ -134,19 +134,19 @@ export default function Dashboard() {
                             if (response.data.status == 200) {
                                 setError(response.data.message);
 
-                                    // window.location.href.url = response.data.checkout_url;
-                                Swal.fire({
-                                    title: "error",
-                                    text:response.data.checkout_url,
-                                    icon: "success",
-                                    confirmButtonText: "OK",
-                                })
+                                    window.location.href= response.data.data.checkout_url;
+                                // Swal.fire({
+                                //     title: "error",
+                                //     text:response.data.data.checkout_url,
+                                //     icon: "success",
+                                //     confirmButtonText: "OK",
+                                // })
 
                             }else{
 
                                 Swal.fire({
                                     title: "error",
-                                    text:response.data,
+                                    text:response.data.data,
                                     icon: "error",
                                     confirmButtonText: "OK",
                                 })
