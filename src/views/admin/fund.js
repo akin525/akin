@@ -134,15 +134,20 @@ export default function Dashboard() {
                             if (response.data.status == 200) {
                                 setError(response.data.message);
 
-                                    window.location.href.url = response.data.checkout_url;
-
+                                    // window.location.href.url = response.data.checkout_url;
+                                Swal.fire({
+                                    title: "error",
+                                    text:response.data.checkout_url,
+                                    icon: "success",
+                                    confirmButtonText: "OK",
+                                })
 
                             }else{
 
                                 Swal.fire({
                                     title: "error",
                                     text:response.data,
-                                    icon: "success",
+                                    icon: "error",
                                     confirmButtonText: "OK",
                                 })
                             }
@@ -156,8 +161,6 @@ export default function Dashboard() {
             setError("An error occured. Check your input and try again");
         }
                 }
-
-
 
 
 
@@ -207,7 +210,7 @@ export default function Dashboard() {
                                         </div>
                                     </div>
                                     <button type="button" onClick={handleSubmit}
-                                            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 m-2">
                                         Fund With transfer
                                     </button>
                                     <button type="button" onClick={handleSubmit1}
