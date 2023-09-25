@@ -205,12 +205,12 @@ export default function Dashboard() {
                     <div className="card-body">
                     <div className="d-flex justify-content-between">
                     <div className="sales-bx m-2">
-                    <i className="fa fa-money yellow_color" style={{fontSize: "30px"}}></i>
+                    <i className="fa fa-money yellow_color" style={{fontSize: "20px"}}></i>
                     <h4>₦{balance.toLocaleString()}</h4>
                     <span>Balance</span>
                     </div>
                     <div className="sales-bx">
-                    <i className="fa fa-money blue1_color" style={{fontSize: "30px"}}></i>
+                    <i className="fa fa-money blue1_color" style={{fontSize: "20px"}}></i>
                     <h4>₦{totaldeposit.toLocaleString()}</h4>
                     <span>Deposit</span>
                     </div>
@@ -226,12 +226,12 @@ export default function Dashboard() {
                     <div className="card-body">
                     <div className="d-flex justify-content-between">
                     <div className="sales-bx ">
-                    <i className="fa fa-money yellow_color" style={{fontSize: "30px"}}></i>
+                    <i className="fa fa-money yellow_color" style={{fontSize: "20px"}}></i>
                     <h4>₦{totalbill.toLocaleString()}</h4>
                     <span>Bills</span>
                     </div>
                     <div className="sales-bx">
-                    <i className="fa fa-lock yellow_color" style={{fontSize: "30px"}}></i>
+                    <i className="fa fa-lock yellow_color" style={{fontSize: "20px"}}></i>
                     <h4>₦{allock.toLocaleString()}</h4>
                     <span>Safelock</span>
                     </div>
@@ -251,6 +251,25 @@ export default function Dashboard() {
                     </div>
                     <div className="col-xl-10">
                     <div className="row">
+                        <div className="col-xl-2 col-sm-4 col-6">
+                            <div className="card ov-card">
+                                <div className="card-body">
+                                    <Link to="/airtime" >
+                                        <div className="ana-box">
+                                            <div className="ic-n-bx">
+                                                <div className="icon-box bg-primary ">
+                                                    <i className="fa fa-brands fa-mobile-phone text-white"></i>
+                                                </div>
+                                            </div>
+                                            <div className="anta-data">
+                                                <h5>Airtime</h5>
+                                                <span>Purchase</span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
                     <div className="col-xl-2 col-sm-4 col-6">
                     <div className="card ov-card">
                     <div className="card-body">
@@ -346,25 +365,7 @@ export default function Dashboard() {
                     </div>
                     </div>
                     </div>
-                    <div className="col-xl-2 col-sm-4 col-6">
-                    <div className="card ov-card">
-                    <div className="card-body">
-                    <Link to="/airtime" >
-                    <div className="ana-box">
-                    <div className="ic-n-bx">
-                    <div className="icon-box bg-primary ">
-                    <i className="fa fa-brands fa-mobile-phone text-white"></i>
-                    </div>
-                    </div>
-                    <div className="anta-data">
-                    <h5>Airtime</h5>
-                    <span>Purchase</span>
-                    </div>
-                    </div>
-                    </Link>
-                    </div>
-                    </div>
-                    </div>
+
                     </div>
                     </div>
                     </div>
