@@ -249,6 +249,10 @@ export default function Sidebar() {
 
                     </nav>
                     </div>
+            <a href="https://wa.me/2349076015317" style={we} target="_blank">
+              <i className="text-white fas fa-phone" style={fl}></i>
+            </a>
+
           </div>
         </div>
       </div>
