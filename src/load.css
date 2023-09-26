@@ -2203,13 +2203,13 @@ a.text-dark:hover, a.text-dark:focus {
     }
 
     .bg-info {
-        background-color: #00afef !important;
+        background-color: #32249a !important;
     }
 
     a.bg-info:hover, a.bg-info:focus,
     button.bg-info:hover,
     button.bg-info:focus {
-        background-color: #008abc !important;
+        background-color: #32249a !important;
     }
 
     .bg-warning {
