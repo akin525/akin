@@ -5021,12 +5021,12 @@ button.bg-success:focus {
   background-color: #0c9b71 !important; }
 
 .bg-info {
-  background-color: #00afef !important; }
+  background-color: #32249a !important; }
 
 a.bg-info:hover, a.bg-info:focus,
 button.bg-info:hover,
 button.bg-info:focus {
-  background-color: #008abc !important; }
+  background-color: #32249a !important; }
 
 .bg-warning {
   background-color: #ff9f00 !important; }

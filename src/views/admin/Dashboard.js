@@ -198,7 +198,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="col-xl-3 col-md-6">
-                    <div className="card bg-primary">
+                    <div className="card bg-secondary" >
                     <div className="card-header border-0">
                     <h4 className="heading mb-0 text-white">Balance & Deposit 😎</h4>
                     </div>
@@ -224,8 +224,8 @@ export default function Dashboard() {
                     <h4 className="heading mb-0 text-white">Purchase & Safelock 😎</h4>
                     </div>
                     <div className="card-body">
-                    <div className="d-flex justify-content-between">
-                    <div className="sales-bx ">
+                    <div className="d-flex justify-content-between ">
+                    <div className="sales-bx m-2">
                     <i className="fa fa-money yellow_color" style={{fontSize: "20px"}}></i>
                     <h4>₦{totalbill.toLocaleString()}</h4>
                     <span>Bills</span>
@@ -257,7 +257,7 @@ export default function Dashboard() {
                                     <Link to="/airtime" >
                                         <div className="ana-box">
                                             <div className="ic-n-bx">
-                                                <div className="icon-box bg-primary ">
+                                                <div className="icon-box bg-success">
                                                     <i className="fa fa-brands fa-mobile-phone text-white"></i>
                                                 </div>
                                             </div>
@@ -276,7 +276,7 @@ export default function Dashboard() {
                     <Link to="/data">
                     <div className="ana-box">
                     <div className="ic-n-bx">
-                    <div className="icon-box bg-primary ">
+                    <div className="icon-box bg-success">
                     <i className="fa fa-book text-white"></i>
                     </div>
                     </div>
@@ -295,7 +295,7 @@ export default function Dashboard() {
                     <Link to="/fund">
                     <div className="ana-box">
                     <div className="ic-n-bx">
-                    <div className="icon-box bg-primary">
+                    <div className="icon-box bg-success">
                     <i className="fa fa-brands fa-money text-white"></i>
                     </div>
                     </div>
@@ -314,7 +314,7 @@ export default function Dashboard() {
                     <Link to="/tv">
                     <div className="ana-box">
                     <div className="ic-n-bx">
-                    <div className="icon-box bg-primary">
+                    <div className="icon-box bg-success">
                     <i className="fa fa-brands fa-amazon text-white"></i>
                     </div>
                     </div>
@@ -333,7 +333,7 @@ export default function Dashboard() {
                     <Link to="/upgrade" href="{{url('verifybill')}}">
                     <div className="ana-box">
                     <div className="ic-n-bx">
-                    <div className="icon-box bg-primary">
+                    <div className="icon-box bg-success">
                     <i className=" fa fa-brands fa-bookmark text-white"></i>
                     </div>
                     </div>
@@ -352,7 +352,7 @@ export default function Dashboard() {
                     <Link to="/elect" >
                     <div className="ana-box">
                     <div className="ic-n-bx">
-                    <div className="icon-box bg-primary ">
+                    <div className="icon-box bg-success">
                     <i className="fa fa-brands fa-money text-white"></i>
                     </div>
                     </div>
