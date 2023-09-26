@@ -28,11 +28,11 @@ export default function Dashboard() {
     const [name, setName] = useState("");
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
-    const [refid,setrefid] = useState("");
+    // const [refid,setrefid] = useState("");
     const [loading, setLoading] = useState(false);
     let token=localStorage.getItem('dataKey');
    const tokenfun="sandbox_sk_1e60156e0e029ec62daa87e91f5a3b0f1a0923246bec";
-    // setrefid("Fund"+Math.floor((Math.random() * 1000000000) + 1));
+  const refid="Fund"+Math.floor((Math.random() * 1000000000) + 1);
 
 
 
@@ -122,15 +122,14 @@ export default function Dashboard() {
                                 email:email,
                                 currency:"NGN",
                                 initiate_type: "inline",
-                                transaction_ref:"987564fr55e7",
-                                callback_url:"http://squadco.com",
+                                transaction_ref:refid,
+                                callback_url:"http://localhost:3000/verify",
                             },{
                                 headers:{
                                     Authorization: `Bearer ${tokenfun}`
                                 },
 
                             }).then(response => {
-                            setLoading(false);
                             if (response.data.status == 200) {
                                 setError(response.data.message);
 
@@ -143,6 +142,7 @@ export default function Dashboard() {
                                 // })
 
                             }else{
+                                setLoading(false);
 
                                 Swal.fire({
                                     title: "error",
@@ -182,7 +182,7 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div className="p-4 flex-auto">
+                <div className="p-4 flex-auto subscribe">
                     {/* Chart */}
 
                         <div className="relative h-350-px">
