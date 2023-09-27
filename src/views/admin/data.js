@@ -8,6 +8,10 @@ import CardProfile from "../../components/Cards/CardProfile";
 import gh from "../../lg.png";
 import Swal from 'sweetalert2';
 import {ToastContainer} from "react-toastify";
+import mtn from "../../mn.jpg";
+import glo from "../../go.jpg";
+import airtel from "../../ar.png";
+import mob from "../../9b.jpg";
 
 
 export default function Data() {
@@ -25,6 +29,23 @@ export default function Data() {
     const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
     const [con, setcon] = useState("");
 
+    const [selectedOption, setSelectedOption] = useState('');
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
+    const options = [
+        { value: 'mtn-data', label: 'MTN ' , imageSrc: mtn },
+        { value: 'glo-data', label: 'GLO', imageSrc: glo },
+        { value: 'airtel-data', label: 'AIRTEL', imageSrc: airtel },
+        { value: 'etisalat-data', label: '9MOBILE', imageSrc: mob },
+    ];
+
+    const handleOptionSelect = (option) => {
+        setSelectedOption(option.value);
+        setnetwork(option.value);
+        setDropdownVisible(false);
+        handledata(option.value);
+
+    };
     const [loading, setloading]=useState(false);
     function myCallback(data) {
         setcon(JSON.stringify(data.success));
@@ -131,7 +152,6 @@ export default function Data() {
 
         if(id === "network"){
             setnetwork(value);
-            handledata(value);
         }
 
         if(id === "number"){
@@ -245,37 +265,79 @@ export default function Data() {
                             </div>
                         </div>
 
-                            <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+                            <div className="flex-auto px-4 lg:px-10 py-10 pt-0 subscribe">
                                 <form>
                                     <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                                         Network Information
                                     </h6>
                                     <div className="flex flex-wrap">
-                                        <div className="w-full ">
-                                            <div className="relative w-full mb-3">
-                                                <label
-                                                    className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                                    htmlFor="grid-password"
-                                                >
-                                                    Select Network
-                                                </label>
-                                                <select name="network"
-                                                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                        value={network} onChange={(e) => handleInputChange(e)}
-                                                        id="network"
-                                                        required="">
+                                        {/*<div className="w-full ">*/}
+                                        {/*    <div className="relative w-full mb-3">*/}
+                                        {/*        <label*/}
+                                        {/*            className="block uppercase text-blueGray-600 text-xs font-bold mb-2"*/}
+                                        {/*            htmlFor="grid-password"*/}
+                                        {/*        >*/}
+                                        {/*            Select Network*/}
+                                        {/*//         </label>*/}
+                                        {/*//         <select name="network"*/}
+                                        {/*//                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"*/}
+                                        {/*//                 value={network} onChange={(e) => handleInputChange(e)}*/}
+                                        {/*                id="network"*/}
+                                        {/*                required="">*/}
 
-                                                    <option>Select Network</option>
-                                                    <option value={"mtn-data"}>MTN</option>
-                                                    <option value={"glo-data"}>GLO</option>
-                                                    <option value={"etisalat-data"}>9MOBILE</option>
-                                                    <option value={"airtel-data"}>AIRTEL</option>
-                                                </select>
-                                            </div>
+                                        {/*            <option>Select Network</option>*/}
+                                        {/*//             <option value={"mtn-data"}>MTN</option>*/}
+                                        {/*//             <option value={"glo-data"}>GLO</option>*/}
+                                        {/*//             <option value={"etisalat-data"}>9MOBILE</option>*/}
+                                        {/*//             <option value={"airtel-data"}>AIRTEL</option>*/}
+                                        {/*        </select>*/}
+                                        {/*    </div>*/}
 
 
+                                        {/*</div>*/}
+                                <div className="w-full">
+                                    <div className="">
+                                        <label
+                                            className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                                            htmlFor="grid-password"
+                                        >
+                                            Select Network
+                                        </label>
+                                        <div
+                                            className={`border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${dropdownVisible ? 'open' : ''}`}
+                                            onClick={() => setDropdownVisible(!dropdownVisible)}
+                                        >
+                                            <span>{selectedOption ? options.find((opt) => opt.value === selectedOption).label : 'Select your network'}</span>
+                                            <i className={`fa fa-chevron-${dropdownVisible ? 'up' : 'down'}`} />
                                         </div>
-                                        <div className="w-full ">
+                                        {dropdownVisible && (
+                                            <div className="options">
+                                                {options.map((option) => (
+                                                    <div
+                                                        key={option.value}
+                                                        onClick={() => handleOptionSelect(option)}
+                                                        className={`option-card ${selectedOption === option.value ? 'selected' : ''}`}
+                                                    >
+                                                        <img
+                                                            src={option.imageSrc}
+                                                            alt={option.label}
+                                                            className="option-image"
+                                                        />
+                                                        <span className={'text-success'}>{option.label}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                        <input
+                                            type="hidden"
+                                            id="network"
+                                            value={selectedOption}
+                                        />
+                                    </div>
+                                </div>
+
+
+                                <div className="w-full ">
                                             <div className="relative w-full mb-3">
                                                 <label
                                                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
