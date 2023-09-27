@@ -30,7 +30,9 @@ export default function Data() {
     const [con, setcon] = useState("");
 
     const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption1, setSelectedOption1] = useState('');
     const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [dropdownVisible1, setDropdownVisible1] = useState(false);
 
     const options = [
         { value: 'mtn-data', label: 'MTN ' , imageSrc: mtn },
@@ -45,6 +47,11 @@ export default function Data() {
         setDropdownVisible(false);
         handledata(option.value);
 
+    };
+    const handleOptionSelect1 = (option) => {
+        setSelectedOption1(option.value);
+        setDropdownVisible1(false);
+        setproductid(option.value);
     };
     const [loading, setloading]=useState(false);
     function myCallback(data) {
@@ -70,6 +77,7 @@ export default function Data() {
 
     const baseURL = "https://server.savebills.com.ng/api/auth/buydata";
     let token=localStorage.getItem('dataKey');
+    const [options1, setOptions1] = useState([]);
 
     React.useEffect(() => {
         try {
@@ -124,7 +132,17 @@ export default function Data() {
                     setError("");
                     setloading(false);
 
-                    setdatass(response.data);
+                    if (selected == "mtn-data") {
+                        const optionsFromServer = response.data.map((item) => ({
+                            value: item.id,
+                            label: item.plan,
+                            imageSrc: mtn, // Replace 'mtn' with the correct image source
+                        }));
+
+                        setOptions1(optionsFromServer);
+                        console.log(options1); // Check if the options are correctly populated
+                    }
+                    // setdatass(response.data);
 
                     if (response.data.status === "0") {
                         setError(response.data.message);
@@ -345,18 +363,49 @@ export default function Data() {
                                                 >
                                                     Select Dataplan
                                                 </label>
-                                                <select name="productid"
-                                                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                                        value={productid} onChange={(e) => handleInputChange(e)}
-                                                        id="productid" required>
-                                                    <option>Select Dataplan</option>
-                                                    {datass.map((datab) => (
-                                                        <option value={datab.id}
-                                                                id={datab.tamount}>{datab.plan}--{datab.tamount}</option>
-                                                    ))}
-                                                </select>
+                                                {/*<select name="productid"*/}
+                                                {/*        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"*/}
+                                                {/*        value={productid} onChange={(e) => handleInputChange(e)}*/}
+                                                {/*        id="productid" required>*/}
+                                                {/*    <option>Select Dataplan</option>*/}
+                                                {/*    {datass.map((datab) => (*/}
+                                                {/*        <option value={datab.id}*/}
+                                                {/*                id={datab.tamount}>{datab.plan}--{datab.tamount}</option>*/}
+                                                {/*    ))}*/}
+                                                {/*</select>*/}
+
+                                                <div
+                                                    className={`border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${dropdownVisible1 ? 'open' : ''}`}
+                                                    onClick={() => setDropdownVisible1(!dropdownVisible1)}
+                                                >
+                                                    <span>{selectedOption1 ? options1.find((opt) => opt.value === selectedOption1)?.label : 'Select your network'}</span>
+                                                    <i className={`fa fa-chevron-${dropdownVisible1 ? 'up' : 'down'}`} />
+                                                </div>
+                                                {dropdownVisible1 && (
+                                                    <div className="options">
+                                                        {options1.map((option) => (
+                                                            <div
+                                                                key={option.value}
+                                                                onClick={() => handleOptionSelect1(option)}
+                                                                className={`option-card ${selectedOption1 === option.value ? 'selected' : ''}`}
+                                                            >
+                                                                <img
+                                                                    src={option.imageSrc}
+                                                                    alt={option.label}
+                                                                    className="option-image"
+                                                                />
+                                                                <span className={'text-success'}>{option.label}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                                <input
+                                                    type="hidden"
+                                                    id="productid"
+                                                    value={selectedOption1}
+                                                />
                                             </div>
-                                        </div>
+                                            </div>
                                         <div className="w-full ">
                                             <div className="relative w-full mb-3">
                                                 <label
