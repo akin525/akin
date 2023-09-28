@@ -216,6 +216,7 @@ export default function Dashboard() {
                     </div>
                     </div>
                     </div>
+                        <Link to="/fund" className="btn btn-success">Fund Wallet</Link>
                     </div>
                     </div>
                     <div className="col-xl-3 col-md-6">
@@ -237,6 +238,8 @@ export default function Dashboard() {
                     </div>
                     </div>
                     </div>
+                        <Link to="/verifyid" className="btn btn-success">Verify Fund</Link>
+
                     </div>
                     </div>
 
