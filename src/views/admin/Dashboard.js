@@ -292,25 +292,25 @@ export default function Dashboard() {
                     </div>
                     </div>
                     </div>
-                    <div className="col-xl-2 col-sm-4 col-6">
-                    <div className="card ov-card">
-                    <div className="card-body">
-                    <Link to="/fund">
-                    <div className="ana-box">
-                    <div className="ic-n-bx">
-                    <div className="icon-box bg-success">
-                    <i className="fa fa-brands fa-money text-white"></i>
-                    </div>
-                    </div>
-                    <div className="anta-data">
-                    <h5>Fund</h5>
-                    <span>wallet</span>
-                    </div>
-                    </div>
-                    </Link>
-                    </div>
-                    </div>
-                    </div>
+                    {/*<div className="col-xl-2 col-sm-4 col-6">*/}
+                    {/*<div className="card ov-card">*/}
+                    {/*<div className="card-body">*/}
+                    {/*<Link to="/fund">*/}
+                    {/*<div className="ana-box">*/}
+                    {/*<div className="ic-n-bx">*/}
+                    {/*<div className="icon-box bg-success">*/}
+                    {/*<i className="fa fa-brands fa-money text-white"></i>*/}
+                    {/*</div>*/}
+                    {/*</div>*/}
+                    {/*<div className="anta-data">*/}
+                    {/*<h5>Fund</h5>*/}
+                    {/*<span>wallet</span>*/}
+                    {/*</div>*/}
+                    {/*</div>*/}
+                    {/*</Link>*/}
+                    {/*</div>*/}
+                    {/*</div>*/}
+                    {/*</div>*/}
                     <div className="col-xl-2 col-sm-4 col-6">
                     <div className="card ov-card">
                     <div className="card-body">
