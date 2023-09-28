@@ -140,7 +140,30 @@ export default function Data() {
                         }));
 
                         setOptions1(optionsFromServer);
-                        console.log(options1); // Check if the options are correctly populated
+                    }else if (selected == "glo-data"){
+                        const optionsFromServer = response.data.map((item) => ({
+                            value: item.id,
+                            label: item.plan,
+                            imageSrc: glo, // Replace 'mtn' with the correct image source
+                        }));
+
+                        setOptions1(optionsFromServer);
+                    }else if (selected == "airtel-data"){
+                        const optionsFromServer = response.data.map((item) => ({
+                            value: item.id,
+                            label: item.plan,
+                            imageSrc: airtel, // Replace 'mtn' with the correct image source
+                        }));
+
+                        setOptions1(optionsFromServer);
+                    }else if (selected == "etisalat-data"){
+                        const optionsFromServer = response.data.map((item) => ({
+                            value: item.id,
+                            label: item.plan,
+                            imageSrc: mob, // Replace 'mtn' with the correct image source
+                        }));
+
+                        setOptions1(optionsFromServer);
                     }
                     // setdatass(response.data);
 
@@ -188,12 +211,13 @@ export default function Data() {
 
 
     const handleSubmit  = async () =>  {
+        const selectedLabel = selectedOption1 ? options1.find((opt) => opt.value === selectedOption1)?.label : 'Select your network';
 
 
         try {
             Swal.fire({
                 title: 'Are you sure?',
-                text: 'Do you want to buy ' + document.getElementById("productid").options[document.getElementById("productid").selectedIndex].text + ' on ' + document.getElementById("number").value + '?',
+                text: `Do you want to buy ${selectedLabel} on ${document.getElementById("number").value}?`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -361,7 +385,7 @@ export default function Data() {
                                                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                                     htmlFor="grid-password"
                                                 >
-                                                    Select Dataplan
+                                                    Select Data plan
                                                 </label>
                                                 {/*<select name="productid"*/}
                                                 {/*        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"*/}
@@ -430,7 +454,7 @@ export default function Data() {
                                         </div>
                                     </div>
                                     <button type="button" onClick={handleSubmit}
-                                            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                            className="submit-btn">
                                         Buy Now<span className="load loading"></span>
                                     </button>
                                     <hr className="mt-6 border-b-1 border-blueGray-300"/>
