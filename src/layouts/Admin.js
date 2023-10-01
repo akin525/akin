@@ -26,6 +26,7 @@ import Upgrade from "../views/admin/upgrade";
 import Reseller from "../views/admin/reseller";
 import Game from "../views/admin/game";
 import Verify from "../views/admin/verify";
+import Verifyf from "../views/admin/verifyf";
 import gh from "../lg.png";
 
 export default function Admin() {
@@ -56,6 +57,7 @@ export default function Admin() {
             <Route path="/reseller" exact component={Reseller} />
             <Route path="/game" exact component={Game} />
           <Route path="/verify" exact component={Verify} />
+          <Route path="/verifyid" exact component={Verifyf} />
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
       </div>

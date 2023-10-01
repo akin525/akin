@@ -4072,3 +4072,47 @@ body.dark-mode .slider:before {
     background-color: #208b37;
     box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
 }
+
+/* CustomDropdown.css */
+
+/* ... previous styles ... */
+
+/* Style for the options */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    max-height: 150px; /* Adjust the max height as needed */
+    overflow-y: auto; /* Enable scrolling if options exceed max height */
+}
+
+/* Style for the option cards */
+.option-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: calc(50% - 5px); /* Adjust the card width as needed */
+}
+
+.option-card.selected {
+    background-color: #f0f0f0; /* Style for the selected card */
+}
+
+.option-image {
+    width: 20px; /* Adjust image width as needed */
+    height: 20px; /* Adjust image height as needed */
+    margin-right: 10px;
+}
+
+/* ... rest of the styles ... */

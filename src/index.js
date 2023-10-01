@@ -26,6 +26,7 @@ ReactDOM.render(
       <Route path="/landing" exact component={Landing} />
       <Route path="/settings" exact component={Admin} />
       <Route path="/verify" exact component={Admin} />
+      <Route path="/verifyid" exact component={Admin} />
       <Route path="/" exact component={Auth} />
       <Route path="/dashboard" exact component={Admin} />
       <Route path="/fund" exact component={Admin} />
