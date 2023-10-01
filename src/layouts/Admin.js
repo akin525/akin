@@ -1,5 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+
+// stye
+import style from './Admin.module.css'
 
 // components
 
@@ -33,10 +36,11 @@ export default function Admin() {
 
   return (
     <>
+    <main className={style.main}>
       <Sidebar />
-        <div id="content">
-      <div>
-      <Switch>
+      <div id="content" className={style.content}>
+        <div>
+          <Switch>
             <Route path="/dashboard" exact component={Dashboard} />
             <Route path="/airtime" exact component={Airtime} />
             <Route path="/fund" exact component={fund} />
@@ -56,12 +60,14 @@ export default function Admin() {
             <Route path="/upgrade" exact component={Upgrade} />
             <Route path="/reseller" exact component={Reseller} />
             <Route path="/game" exact component={Game} />
-          <Route path="/verify" exact component={Verify} />
-          <Route path="/verifyid" exact component={Verifyf} />
+            <Route path="/verify" exact component={Verify} />
+            <Route path="/verifyid" exact component={Verifyf} />
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
-      </div>
         </div>
+      </div>
+    </main>
+      
     </>
   );
 }
