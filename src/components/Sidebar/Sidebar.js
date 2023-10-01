@@ -184,7 +184,7 @@ export default function Sidebar() {
                       {/*            className="btn btn-primary  ">*/}
                       {/*      <i className="fas fa-times"></i></button>*/}
                       {/*) : null}*/}
-                      <h6>{username}</h6>
+                      <h6>{username}</h6> 
 
                       <p><span className="online_animation"></span> Online</p>
                     </div>
