@@ -167,7 +167,8 @@ export default function Sidebar() {
           <div className="inner_container">
 
             <nav id="sidebar" className={sidebarActive ? 'active' : ''}>
-              <div className="sidebar_blog_1">
+              <div>
+                <div className="sidebar_blog_1">
 
                 <div className="sidebar-header">
                   <div className="logo_section">
@@ -243,13 +244,16 @@ export default function Sidebar() {
                   </li>
                 </ul>
               </div>
+              </div>
+              
+              <button type="button" className="sidebar_toggle"
+                    onClick={toggleSidebar}>
+                    <i className="fa fa-bars"></i></button>
             </nav>
             <div className="topbar">
               <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="full">
-                  <button type="button" className="sidebar_toggle"
-                    onClick={toggleSidebar}>
-                    <i className="fa fa-bars"></i></button>
+                  
 
 
 
