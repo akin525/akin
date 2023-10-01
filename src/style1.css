@@ -928,11 +928,11 @@ a[data-toggle="collapse"] {
 }
 
 #content {
-    width: 100%;
+    width: calc(100%-280px);
     min-height: 100vh;
     transition: ease all 0.3s;
     position: relative;
-    padding: 60px 25px 25px 305px;
+    padding: 60px 25px 25px 290px;
     background: #f8f8f8;
 }
 
