@@ -892,8 +892,10 @@ span {
 }
 .sidebar_toggle{
     position: absolute;
+    /* position: relative; */
     right: 0;
-    transform: translateX(70px);
+    /* transform: translateX(70px); */
+    /* z-index: 9; */
 }
 
 #sidebar ul li a:hover,
