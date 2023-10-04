@@ -479,7 +479,7 @@ a:focus {
 
 .full {
     width: 100%;
-    float: left;
+    /* float: left; */
 }
 
 .brown_color {
@@ -638,26 +638,34 @@ a:focus {
 ==============*/
 
 .topbar {
-    position: fixed;
     width: 100%;
+    position: fixed;
+    /* width: 100%; */
     padding-left: 280px;
     z-index: 2;
     background: #ffffff;
     top: 0;
     transition: ease all 0.3s;
-    left: 0;
+    right: 0;
 }
-
+/* 
 #sidebar.active+#content .topbar {
-    padding-left: 5px;
-}
+    margin-left: 150px;
+} */
 /* #sidebar.active+#content{
     width: calc(100%-140px);
 } */
 
-.topbar .navbar {
-    margin: 0;
+.topbar .navbar{
+    width: 100%;
+    /* padding-left: 280px; */
+    
 }
+/* #sidebar.active>.topbar .navbar{
+    
+    width: calc(100% - 95px);
+    margin-left: 95px;
+} */
 
 .right_topbar {
     float: right;
@@ -888,7 +896,7 @@ span {
 }
 #sidebar{
     display: flex;
-    position: relative;
+    position: static;
 }
 .sidebar_toggle{
     position: absolute;
@@ -967,9 +975,12 @@ a[data-toggle="collapse"] {
     color: #15283c;
 }
 
-#sidebar.active+#content {
+#sidebar.active+#content{
     padding-left: 60px;
     /* margin-right: 609px; */
+}
+#sidebar.active+#content .topbar{
+    padding-left: 97px;
 }
 
 .topbar .navbar {
