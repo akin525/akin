@@ -123,10 +123,12 @@ export default function Dashboard() {
                                 currency:"NGN",
                                 initiate_type: "inline",
                                 transaction_ref:refid,
-                                callback_url:"http://localhost:3000/verify",
+                                callback_url:"https://savebills.com.ng/verify",
+                                payment_channel:['card', 'bank' , 'ussd','transfer'],
                             },{
                                 headers:{
-                                    Authorization: `Bearer ${tokenfun}`
+                                    Authorization: `Bearer ${tokenfun}`,
+                                    'Cache-Control': 'no-cache'
                                 },
 
                             }).then(response => {

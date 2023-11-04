@@ -91,34 +91,34 @@ export default function Sidebar() {
       console.log("Can not excecute for now");
     }
     axios
-      .get(baseURL, {
-        // username:useCookies('username'),
-        headers: {
-          Authorization: `Bearer ${token}`
-        },
+        .get(baseURL, {
+          // username:useCookies('username'),
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
 
-      })
-      .then(response => {
-        setError("");
-        setMessage(response);
+        })
+        .then(response => {
+          setError("");
+          setMessage(response);
 
-        if (response.data.status === "0") {
-          window.location = 'login';
-        }
-        setusername(response.data.username);
-        setName(response.data.username);
-        setBalance(response.data.wallet);
-        setName(response.data.name);
-        setTotalbill(response.data.totalbill);
-        setTotaldeposit(response.data.totaldeposit);
-        setall(response.data.bills);
-        setapikey(response.data.apikey);
-        console.log(apikey);
-        setMessage(response.data.message);
+          if (response.data.status === "0") {
+            window.location = 'login';
+          }
+          setusername(response.data.username);
+          setName(response.data.username);
+          setBalance(response.data.wallet);
+          setName(response.data.name);
+          setTotalbill(response.data.totalbill);
+          setTotaldeposit(response.data.totaldeposit);
+          setall(response.data.bills);
+          setapikey(response.data.apikey);
+          console.log(apikey);
+          setMessage(response.data.message);
 
 
-        setPost(response.data);
-      });
+          setPost(response.data);
+        });
 
   }, []);
 
@@ -126,31 +126,31 @@ export default function Sidebar() {
 
     try {
       axios
-        .post(baseURL1)
-        .then(response => {
-          // setError("");
-          // setMessage(response);
+          .post(baseURL1)
+          .then(response => {
+            // setError("");
+            // setMessage(response);
 
-          if (response.data.status === "0") {
-            // setError(response.data.message);
+            if (response.data.status === "0") {
+              // setError(response.data.message);
 
 
-          } else {
-            // setMessage(response.data.message);
-            localStorage.removeItem('dataKey');
-            // const [cookies, setCookie] = useCookies(response.data.username);
-            swal({
-              title: "Success",
-              text: response.data.message,
-              icon: "success",
-              confirmButtonText: "OK",
-            }).then(function () {
-              // Redirect the user
-              window.location.href = "/";
-            });
-          }
-          // setPost(response.data);
-        });
+            } else {
+              // setMessage(response.data.message);
+              localStorage.removeItem('dataKey');
+              // const [cookies, setCookie] = useCookies(response.data.username);
+              swal({
+                title: "Success",
+                text: response.data.message,
+                icon: "success",
+                confirmButtonText: "OK",
+              }).then(function () {
+                // Redirect the user
+                window.location.href = "/";
+              });
+            }
+            // setPost(response.data);
+          });
     } catch (e) {
       console.log(e);
       console.log("e.data");
@@ -160,122 +160,122 @@ export default function Sidebar() {
   }
 
   return (
-    <>
-      <div className="dashboard dashboard_1">
+      <>
+        <div className="dashboard dashboard_1">
 
-        <div className="full_container">
-          <div className="inner_container">
+          <div className="full_container">
+            <div className="inner_container">
 
-            <nav id="sidebar" className={sidebarActive ? 'active' : ''}>
-              <div>
-                <div className="sidebar_blog_1">
+              <nav id="sidebar" className={sidebarActive ? 'active' : ''}>
+                <div>
+                  <div className="sidebar_blog_1">
 
-                <div className="sidebar-header">
-                  <div className="logo_section">
-                    <a href="{{route('dashboard')}}"><img className="logo_icon img-responsive" src={gh} alt="#" /></a>
-                  </div>
-                </div>
-                <div className="sidebar_user_info">
-                  <div className="icon_setting"></div>
-                  <div className="user_profle_side">
-                    <div className="user_img"><img className="img-responsive" src={gh} alt="#" /></div>
-                    <div className="user_info">
-                      {/*{isMobile === true ? (*/}
-                      {/*    <button type="button" onClick={handleMenuClick}*/}
-                      {/*            className="btn btn-primary  ">*/}
-                      {/*      <i className="fas fa-times"></i></button>*/}
-                      {/*) : null}*/}
-                      <h6>{username}</h6>
-
-                      <p><span className="online_animation"></span> Online</p>
+                    <div className="sidebar-header">
+                      <div className="logo_section">
+                        <a href="{{route('dashboard')}}"><img className="logo_icon img-responsive" src={gh} alt="#" /></a>
+                      </div>
                     </div>
-                  </div>
+                    <div className="sidebar_user_info">
+                      <div className="icon_setting"></div>
+                      <div className="user_profle_side">
+                        <div className="user_img"><img className="img-responsive" src={gh} alt="#" /></div>
+                        <div className="user_info">
+                          {/*{isMobile === true ? (*/}
+                          {/*    <button type="button" onClick={handleMenuClick}*/}
+                          {/*            className="btn btn-primary  ">*/}
+                          {/*      <i className="fas fa-times"></i></button>*/}
+                          {/*) : null}*/}
+                          <h6>{username}</h6>
 
+                          <p><span className="online_animation"></span> Online</p>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <div className="sidebar_blog_2">
+                    <h4>
+                      <a href="https://play.google.com/store/apps/details?id=com.a5starcompany.savebills" className="font-weight-bold text-center">
+                        <img width="150" src={playstore} alt="#" />
+
+                      </a>
+                    </h4>
+                    <ul className="list-unstyled components">
+                      <li className="active" >
+                        <Link onClick={handleMenuClick} to="/dashboard" ><i className="fa fa-dashboard white_color" ></i> <span>Dashboard</span></Link>
+                      </li>
+
+                      <li className="active">
+                        <Link to="/fund" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Fund Wallet</span></Link>
+                      </li>
+                      <li className="active">
+                        <Link to="/verifyid" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Verify Fund</span></Link>
+                      </li>
+                      <li className="active">
+                        <Link to="/settings" onClick={handleMenuClick}  ><i className="fa fa-user white_color"></i> <span>Profile</span></Link>
+                      </li>
+                      <li className="active">
+                        <Link to="/upgrade" onClick={handleMenuClick} ><i className="fa fa-bookmark-o white_color"></i> <span>Upgrade</span></Link>
+                      </li>
+                      <li className="active">
+                        <Link to="/data" onClick={handleMenuClick}><i className="fa fa-mobile white_color"></i> <span>Buy Data</span></Link>
+                      </li>
+                      <li className="active">
+                        <Link to="/airtime" onClick={handleMenuClick} ><i className="fa fa-telegram white_color"></i> <span>Buy Airtime</span></Link>
+                      </li>
+                      <li className="active">
+                        <Link to="/tv" onClick={handleMenuClick}><i className="fa fa-television white_color"></i> <span>Cable Subscription</span></Link>
+                      </li>
+                      <li className="active">
+                        <Link to="/elect" onClick={handleMenuClick} ><i className="fa fa-lightbulb-o white_color"></i> <span>Electricity</span></Link>
+                      </li>
+                      <li>
+                        <Link to="/purchase" onClick={handleMenuClick}><i className="fa fa-sticky-note "></i> <span>Bills Invoice</span></Link>
+                      </li>
+                      <li>
+                        <Link to="/deposit" onClick={handleMenuClick}><i className="fa fa-money"></i> <span>Deposit</span></Link>
+                      </li>
+                      <li>
+                        <Link to="/createlock" onClick={handleMenuClick}><i className="fa fa-lock "></i> <span>Save Money</span></Link>
+                      </li>
+                      <li>
+                        <Link to="/addlock" onClick={handleMenuClick}><i className="fa fa-lock "></i> <span>Add Savings</span></Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
-              </div>
-              <div className="sidebar_blog_2">
-                <h4>
-                  <a href="https://play.google.com/store/apps/details?id=com.a5starcompany.savebills" className="font-weight-bold text-center">
-                    <img width="150" src={playstore} alt="#" />
-
-                  </a>
-                </h4>
-                <ul className="list-unstyled components">
-                  <li className="active" >
-                    <Link onClick={handleMenuClick} to="/dashboard" ><i className="fa fa-dashboard white_color" ></i> <span>Dashboard</span></Link>
-                  </li>
-
-                  <li className="active">
-                    <Link to="/fund" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Fund Wallet</span></Link>
-                  </li>
-                  <li className="active">
-                    <Link to="/verifyid" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Verify Fund</span></Link>
-                  </li>
-                  <li className="active">
-                    <Link to="/settings" onClick={handleMenuClick}  ><i className="fa fa-user white_color"></i> <span>Profile</span></Link>
-                  </li>
-                  <li className="active">
-                    <Link to="/upgrade" onClick={handleMenuClick} ><i className="fa fa-bookmark-o white_color"></i> <span>Upgrade</span></Link>
-                  </li>
-                  <li className="active">
-                    <Link to="/data" onClick={handleMenuClick}><i className="fa fa-mobile white_color"></i> <span>Buy Data</span></Link>
-                  </li>
-                  <li className="active">
-                    <Link to="/airtime" onClick={handleMenuClick} ><i className="fa fa-telegram white_color"></i> <span>Buy Airtime</span></Link>
-                  </li>
-                  <li className="active">
-                    <Link to="/tv" onClick={handleMenuClick}><i className="fa fa-television white_color"></i> <span>Cable Subscription</span></Link>
-                  </li>
-                  <li className="active">
-                    <Link to="/elect" onClick={handleMenuClick} ><i className="fa fa-lightbulb-o white_color"></i> <span>Electricity</span></Link>
-                  </li>
-                  <li>
-                    <Link to="/purchase" onClick={handleMenuClick}><i className="fa fa-sticky-note "></i> <span>Bills Invoice</span></Link>
-                  </li>
-                  <li>
-                    <Link to="/deposit" onClick={handleMenuClick}><i className="fa fa-money"></i> <span>Deposit</span></Link>
-                  </li>
-                  <li>
-                    <Link to="/createlock" onClick={handleMenuClick}><i className="fa fa-lock "></i> <span>Save Money</span></Link>
-                  </li>
-                  <li>
-                    <Link to="/addlock" onClick={handleMenuClick}><i className="fa fa-lock "></i> <span>Add Savings</span></Link>
-                  </li>
-                </ul>
-              </div>
-              </div>
-              
-              <button type="button" className="sidebar_toggle"
-                    onClick={toggleSidebar}>
-                    <i className="fa fa-bars"></i></button>
-            </nav>
-            <div className="topbar">
-              <nav className="navbar navbar-expand-lg navbar-light">
-                <div className="full">
-                  
-
-
-
-                  <div className="logo_section m-1">
-                    <a href="{{ route('dashboard') }}"><img class="img-responsive" src={gh} alt="#" /></a>
-                  </div>
-                  <br />
-                </div>
-
+                <button type="button" className="sidebar_toggle"
+                        onClick={toggleSidebar}>
+                  <i className="fa fa-bars"></i></button>
               </nav>
-            </div>
-            <a href="https://wa.me/2349076015317" style={we} target="_blank">
-              <i className="text-white fas fa-phone" style={fl}></i>
-            </a>
+              <div className="topbar">
+                <nav className="navbar navbar-expand-lg navbar-light">
+                  <div className="full">
 
+
+
+
+                    <div className="logo_section m-1">
+                      <a href="{{ route('dashboard') }}"><img class="img-responsive" src={gh} alt="#" /></a>
+                    </div>
+                    <br />
+                  </div>
+
+                </nav>
+              </div>
+              <a href="https://wa.me/2349076015317" style={we} target="_blank">
+                <i className="text-white fas fa-phone" style={fl}></i>
+              </a>
+
+            </div>
           </div>
         </div>
-      </div>
 
 
 
 
-    </>
+      </>
   );
 }
