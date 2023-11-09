@@ -60,11 +60,11 @@ export default function Dashboard() {
                 setaccount_name1(response.data.account_name1);
                 setuserid(response.data.id);
                 setemail(response.data.email);
-                if (response.data.bank==null) {
+                if (response.data.bank1==null) {
                     setbank('VFD Microfinance Bank');
 
                 }else {
-                    setbank(response.data.bank);
+                    setbank(response.data.bank1);
                 }
 
                 setMessage(response.data.message);
@@ -91,7 +91,7 @@ export default function Dashboard() {
                 if (amount <= 3500) {
                     Swal.fire({
                         title: "Fund With",
-                        text:"Account Number:"+account_number1+" || Account Name:"+account_name1+" || Bank Name:"+bank,
+                        text:"Account Number:"+account_number+" || Account Name:"+account_name+" || Bank Name:"+bank,
                         icon: "success",
                         confirmButtonText: "OK",
                     })
@@ -100,7 +100,7 @@ export default function Dashboard() {
                 }else {
                     Swal.fire({
                         title: "Fund With",
-                        text:"Account Number:"+account_number1+" || Account Name:"+account_name1+" || Bank Name:"+bank,
+                        text:"Account Number:"+account_number+" || Account Name:"+account_name+" || Bank Name:"+bank,
                         icon: "success",
                         confirmButtonText: "OK",
                     })
@@ -215,10 +215,10 @@ export default function Dashboard() {
                                             className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 m-2">
                                         Fund With transfer
                                     </button>
-                                    <button type="button" onClick={handleSubmit1}
-                                            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
-                                        Fund With card
-                                    </button>
+                                    {/*<button type="button" onClick={handleSubmit1}*/}
+                                    {/*        className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">*/}
+                                    {/*    Fund With card*/}
+                                    {/*</button>*/}
                                     {/*<button type="button" onClick={handleSubmit1}*/}
                                     {/*        className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">*/}
                                     {/*    Fund With Card*/}

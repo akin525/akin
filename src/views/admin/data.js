@@ -131,6 +131,7 @@ export default function Data() {
                 .then(response => {
                     setError("");
                     setloading(false);
+                    setdatass(response.data);
 
                     if (selected == "mtn-data") {
                         const optionsFromServer = response.data.map((item) => ({
@@ -379,57 +380,26 @@ export default function Data() {
                                 </div>
 
 
-                                <div className="w-full ">
+                                        <div className="w-full ">
                                             <div className="relative w-full mb-3">
                                                 <label
                                                     className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                                                     htmlFor="grid-password"
                                                 >
-                                                    Select Data plan
+                                                    Select Dataplan
                                                 </label>
-                                                {/*<select name="productid"*/}
-                                                {/*        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"*/}
-                                                {/*        value={productid} onChange={(e) => handleInputChange(e)}*/}
-                                                {/*        id="productid" required>*/}
-                                                {/*    <option>Select Dataplan</option>*/}
-                                                {/*    {datass.map((datab) => (*/}
-                                                {/*        <option value={datab.id}*/}
-                                                {/*                id={datab.tamount}>{datab.plan}--{datab.tamount}</option>*/}
-                                                {/*    ))}*/}
-                                                {/*</select>*/}
-
-                                                <div
-                                                    className={`border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${dropdownVisible1 ? 'open' : ''}`}
-                                                    onClick={() => setDropdownVisible1(!dropdownVisible1)}
-                                                >
-                                                    <span>{selectedOption1 ? options1.find((opt) => opt.value === selectedOption1)?.label : 'Select your network'}</span>
-                                                    <i className={`fa fa-chevron-${dropdownVisible1 ? 'up' : 'down'}`} />
-                                                </div>
-                                                {dropdownVisible1 && (
-                                                    <div className="options">
-                                                        {options1.map((option) => (
-                                                            <div
-                                                                key={option.value}
-                                                                onClick={() => handleOptionSelect1(option)}
-                                                                className={`option-card ${selectedOption1 === option.value ? 'selected' : ''}`}
-                                                            >
-                                                                <img
-                                                                    src={option.imageSrc}
-                                                                    alt={option.label}
-                                                                    className="option-image"
-                                                                />
-                                                                <span className={'text-success'}>{option.label}</span>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                                <input
-                                                    type="hidden"
-                                                    id="productid"
-                                                    value={selectedOption1}
-                                                />
+                                                <select name="productid"
+                                                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                        value={productid} onChange={(e) => handleInputChange(e)}
+                                                        id="productid" required>
+                                                    <option>Select Dataplan</option>
+                                                    {datass.map((datab) => (
+                                                        <option value={datab.id}
+                                                                id={datab.tamount}>{datab.plan}--{datab.tamount}</option>
+                                                    ))}
+                                                </select>
                                             </div>
-                                            </div>
+                                        </div>
                                         <div className="w-full ">
                                             <div className="relative w-full mb-3">
                                                 <label

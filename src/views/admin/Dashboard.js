@@ -238,7 +238,7 @@ export default function Dashboard() {
                     </div>
                     </div>
                     </div>
-                        <Link to="/verifyid" className="btn btn-success">Verify Fund</Link>
+                        {/*<Link to="/verifyid" className="btn btn-success">Verify Fund</Link>*/}
 
                     </div>
                     </div>

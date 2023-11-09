@@ -209,9 +209,9 @@ export default function Sidebar() {
                       <li className="active">
                         <Link to="/fund" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Fund Wallet</span></Link>
                       </li>
-                      <li className="active">
-                        <Link to="/verifyid" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Verify Fund</span></Link>
-                      </li>
+                      {/*<li className="active">*/}
+                      {/*  <Link to="/verifyid" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Verify Fund</span></Link>*/}
+                      {/*</li>*/}
                       <li className="active">
                         <Link to="/settings" onClick={handleMenuClick}  ><i className="fa fa-user white_color"></i> <span>Profile</span></Link>
                       </li>
