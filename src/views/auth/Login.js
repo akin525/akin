@@ -329,7 +329,7 @@ export default function Login() {
                                   </div>
                             </div>
 
-                            <a className="forgot" href="{{ route('password.request') }}">Forgotten Password?</a>
+                            <Link to="/auth/pass" className="forgot" href="">Forgotten Password?</Link>
                             <div className="next-btn">
                               <button type="button" onClick={handleSubmit} className="btn btn-success">Login
                               </button>

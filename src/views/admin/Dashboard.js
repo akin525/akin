@@ -16,6 +16,8 @@ import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
 import CardStats from "../../components/Cards/CardStats";
 import gh from "../../lg.png";
 import dev from 'deve.png';
+import safe from '../../sf.jpg';
+import {toast} from "react-toastify";
 
 export default function Dashboard() {
     const [loading, setLoading] = useState(false);
@@ -28,6 +30,7 @@ export default function Dashboard() {
 
     const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
     const refer1="http://savebills.com.ng/auth/register?refer=";
+    const regene="https://admin.savebills.com.ng/api/auth/newaccount1";
 
 
     const [totaldeposit, setTotaldeposit] = useState("0");
@@ -38,6 +41,7 @@ export default function Dashboard() {
     const [bonus, setbonus] = useState("0");
     const [account_number, setaccount_number] = useState("0");
     const [account_name, setaccount_name] = useState("0");
+    const [bank, setBank] = useState("");
     const [name, setName] = useState("");
     const [username, setusername] = useState("");
     const [error, setError] = useState("");
@@ -91,6 +95,7 @@ export default function Dashboard() {
                 setallock(response.data.allock);
                 setaccount_number(response.data.account_number);
                 setaccount_name(response.data.account_name);
+                setBank(response.data.bank1)
                 setbonus(response.data.referbonus);
                 setnoti(response.data.noti);
                 setapikey(response.data.apikey);
@@ -143,6 +148,47 @@ export default function Dashboard() {
     const ul={
         listStyleType:'square',
     };
+    const handleSubmitacct  = async () =>  {
+        setLoading(true);
+        try {
+            axios
+                .post(regene, {
+                    username:username,
+                })
+                .then(response => {
+                    setError("");
+                    setMessage(response);
+                  setLoading(false);
+
+                    if (response.data.status == "0") {
+                        setError(response.data.message);
+                        // swal({
+                        //   title: "Ooops",
+                        //   text: response.data.message,
+                        //   icon: "error",
+                        //   confirmButtonText: "OK",
+                        // });
+                        toast.error(response.data.message, {
+                            position: "top-center",
+                            autoClose: 3000, // Time in milliseconds, or false to disable autoclose
+                        });
+
+                    }else{
+                        toast.success(response.data.message, {
+                            position: "center",
+                            autoClose: 3000, // Time in milliseconds, or false to disable autoclose
+                        });
+                        window.location.href='/dashboard';
+
+
+                    }
+                    // setPost(response.data);
+                });
+        }catch (e) {
+            setError("An error occured. Check your input and try again");
+        }
+    }
+
     return (
     <>
         <div >
@@ -243,7 +289,70 @@ export default function Dashboard() {
                     </div>
                     </div>
 
+                        <div className="row">
+                            <marquee><h4>Please kindly use the new first account details for funding to avoid network delay..Thanks
+                             & if your account details is not display in the first box, kindly click on regenerate button so as to fetch details back
+                            </h4></marquee>
+                        <div className="col-xl-6">
+                            <div className="card overflow-hidden">
+                                <div className="card-body bg-secondary">
+                                    <div className="">
+                                        <div className="c-con">
+                                            <h6 className="heading mb-0 text-white">New Virtual <strong>Account
+                                                1</strong></h6>
 
+                                            <div className="">
+                                                {bank == null ?
+                                                    <center>
+                                                    <button type="button" onClick={handleSubmitacct}  className="btn btn-primary text-center">Regenerate</button>
+                                                    </center> :
+                                                    <ul style={{listStyleType:"square"}}>
+                                                    <li className='text-white'><h5 className='text-white'>
+                                                    <b>{account_name}</b></h5></li>
+                                                    <li className='text-white'><h5 className='text-white'><b>Account
+                                                    No:{account_number}</b></h5></li>
+                                                    <li className='text-white'><h5 className='text-white'>
+                                                    <b>Bank: {bank} </b></h5></li>
+                                                    </ul>
+                                                }
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-xl-6">
+                            <div className="card overflow-hidden">
+                                <div className="card-body bg-secondary">
+                                    <div className="">
+                                        <div className="c-con">
+                                            <h6 className="heading mb-0 text-white">Virtual <strong>Account
+                                                2</strong></h6>
+
+                                            <div className="">
+                                                {/*<ul style={{listStyleType:"square"}}>*/}
+                                                {/*    <li className='text-white'><h5 className='text-white'>*/}
+                                                {/*        <b>{account_name}</b></h5></li>*/}
+                                                {/*    <li className='text-white'><h5 className='text-white'><b>Account*/}
+                                                {/*        No:{account_number}</b></h5></li>*/}
+                                                {/*    <li className='text-white'><h5 className='text-white'>*/}
+                                                {/*        <b>Bank: {bank} </b></h5></li>*/}
+                                                {/*</ul>*/}
+                                                <br/>
+                                                <br/>
+                                                <center>
+                                                <button type="button" className="btn btn-primary text-center">Coming sooon</button>
+                                                </center>
+                                                <br/>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                     <div className="col-xl-12">
                     <div className="card bg-secondary analytics-card">
                     <div className="card-body mt-4 pb-1">

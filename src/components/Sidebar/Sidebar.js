@@ -171,14 +171,14 @@ export default function Sidebar() {
                   <div className="sidebar_blog_1">
 
                     <div className="sidebar-header">
-                      <div className="logo_section">
-                        <a href="{{route('dashboard')}}"><img className="logo_icon img-responsive" src={gh} alt="#" /></a>
+                      <div className="logo_section" onClick={toggleSidebar}>
+                        <img className="logo_icon img-responsive" src={gh} alt="#" />
                       </div>
                     </div>
                     <div className="sidebar_user_info">
                       <div className="icon_setting"></div>
                       <div className="user_profle_side">
-                        <div className="user_img"><img className="img-responsive" src={gh} alt="#" /></div>
+                        <div className="user_img" onClick={toggleSidebar}><img className="img-responsive" src={gh} alt="#" /></div>
                         <div className="user_info">
                           {/*{isMobile === true ? (*/}
                           {/*    <button type="button" onClick={handleMenuClick}*/}
@@ -258,7 +258,7 @@ export default function Sidebar() {
 
 
                     <div className="logo_section m-1">
-                      <a href="{{ route('dashboard') }}"><img class="img-responsive" src={gh} alt="#" /></a>
+                      <a href="#" onClick={toggleSidebar}><img className="img-responsive" src={gh} alt="#" /></a>
                     </div>
                     <br />
                   </div>

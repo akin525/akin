@@ -42,7 +42,7 @@ export default function Data() {
     ];
 
     const handleOptionSelect = (option) => {
-        setSelectedOption(option.value);
+        setSelectedOption(datass.value);
         setnetwork(option.value);
         setDropdownVisible(false);
         handledata(option.value);
@@ -51,7 +51,6 @@ export default function Data() {
     const handleOptionSelect1 = (option) => {
         setSelectedOption1(option.value);
         setDropdownVisible1(false);
-        setproductid(option.value);
     };
     const [loading, setloading]=useState(false);
     function myCallback(data) {
@@ -119,6 +118,16 @@ export default function Data() {
         window.web2app.advert.showinterstitial(myCallback);
 
     }
+
+
+
+        const handleSelectOption = () => {
+            const selectedOption = datass.find((datab) => datab.id === productid);
+            const selectedLabel = selectedOption ? `${selectedOption.plan} -- ${selectedOption.tamount}` : 'Select Dataplan';
+
+            // Use selectedLabel as needed
+            console.log(selectedLabel);
+        };
     const handledata  = async (selected) =>  {
         setloading(true);
 
@@ -132,6 +141,7 @@ export default function Data() {
                     setError("");
                     setloading(false);
                     setdatass(response.data);
+                    setSelectedOption(datass.value);
 
                     if (selected == "mtn-data") {
                         const optionsFromServer = response.data.map((item) => ({
@@ -202,6 +212,8 @@ export default function Data() {
         if(id === "productid"){
             setproductid(value);
             myNewFunction(this);
+            setproductid(e.target.value);
+
         }
 
 
@@ -212,13 +224,11 @@ export default function Data() {
 
 
     const handleSubmit  = async () =>  {
-        const selectedLabel = selectedOption1 ? options1.find((opt) => opt.value === selectedOption1)?.label : 'Select your network';
-
 
         try {
             Swal.fire({
                 title: 'Are you sure?',
-                text: `Do you want to buy ${selectedLabel} on ${document.getElementById("number").value}?`,
+                text: `Do you want to buy ${handleSelectOption} on ${document.getElementById("number").value}?`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
