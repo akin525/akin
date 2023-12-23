@@ -6,7 +6,7 @@ import gh from 'lg.png'
 // components
 
 export default function CardProfile() {
-  const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
+  const baseURL = "https://bills.sammighty.com.ng/api/auth/dashboard";
 
   const [totaldeposit, setTotaldeposit] = useState("0");
   const [totalbill, setTotalbill] = useState("0");

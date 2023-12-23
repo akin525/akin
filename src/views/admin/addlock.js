@@ -27,10 +27,10 @@ export default function Dashboard({color}) {
     const [datass1, setdatass1]=useState([])
     const [amount,setamount] = useState("");
 
-    const baseURL2 = "https://server.savebills.com.ng/api/auth/allock";
-    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/allock";
+    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
 
-    const baseURL = "https://server.savebills.com.ng/api/auth/buydata";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/buydata";
     let token=localStorage.getItem('dataKey');
     function myCallback(data) {
 

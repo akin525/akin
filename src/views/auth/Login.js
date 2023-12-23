@@ -15,8 +15,8 @@ export default function Login() {
   const [message, setMessage] = useState("");
   const [password,setPassword] = useState("");
   const [isloading, setisloading]=useState(false);
-  const baseURL = "https://server.savebills.com.ng/api/auth/signin";
-  const baseURL1 = "https://server.savebills.com.ng/api/auth/google";
+  const baseURL = "https://bills.sammighty.com.ng/api/auth/signin";
+  const baseURL1 = "https://bills.sammighty.com.ng/api/auth/google";
   const [loading, setloading]=useState(false);
 
   const [con, setcon] = useState("");
@@ -224,7 +224,7 @@ export default function Login() {
                 autoClose: 3000, // Time in milliseconds, or false to disable autoclose
               });
               setMessage(response.data.message);
-              localStorage.setItem('dataKey', response.data.token);
+              localStorage.setItem('dataKey', response.data.data.token);
               try {
                 window.web2app.biometric.saveauth({'password':password, 'username':username});
                 window.web2app.pushNotification.subscribe(username);
@@ -336,6 +336,14 @@ export default function Login() {
                             </div>
                           </form>
                       }
+                      {con =="true" ?
+                          <center>
+                            <i onClick={pick} style={{
+                              width:'100%',
+                              fontSize:"xx-large"
+                            }} id="number" className="fas fa-fingerprint"></i>
+                            <h4><b>Login with Fingerprint</b></h4>
+                          </center>:true}
                     </div>
                 </div>
               </div>

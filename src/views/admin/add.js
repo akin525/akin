@@ -14,8 +14,8 @@ export default function Settings() {
     const [message, setMessage] = useState("");
     const [userid, setuserid] = useState("");
     const [loading, setloading]=useState(false);
-    const baseURL = "https://server.savebills.com.ng/api/auth/addlock";
-    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/addlock";
+    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
 
     let token=localStorage.getItem('dataKey');
 

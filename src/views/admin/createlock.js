@@ -20,8 +20,8 @@ export default function Createlock() {
     const [message, setMessage] = useState("");
     const [userid, setuserid] = useState("");
     const [refid,setrefid] = useState("");
-    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
-    const baseURL ="https://server.savebills.com.ng/api/auth/createlock";
+    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURL ="https://bills.sammighty.com.ng/api/auth/createlock";
     let token=localStorage.getItem('dataKey');
 
     React.useEffect(() => {

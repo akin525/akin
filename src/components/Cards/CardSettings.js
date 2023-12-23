@@ -15,8 +15,8 @@ export default function CardSettings() {
   const [password, setpassword]=useState("")
   const [cpass, setcpass]=useState("")
   const [number,setnumber] = useState("");
-  const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
-  const baseURL2 = "https://server.savebills.com.ng/api/auth/cpass";
+  const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
+  const baseURL2 = "https://bills.sammighty.com.ng/api/auth/cpass";
   const [apikey, setapikey] = useState("");
 
   const btns = document.querySelectorAll('button');
@@ -25,7 +25,7 @@ export default function CardSettings() {
       evt.target.classList.add('activeLoading');
     })
   })
-  const baseURL = "https://server.savebills.com.ng/api/auth/profile";
+  const baseURL = "https://bills.sammighty.com.ng/api/auth/profile";
   let token=localStorage.getItem('dataKey');
   const [loading, setLoading] = useState(false);
   const [loading1, setLoading1] = useState(false);
@@ -55,11 +55,11 @@ export default function CardSettings() {
           if (response.data.status ==="0"){
             window.location='login';
           }
-          setusername(response.data.username);
-          setname(response.data.name);
-          setemail(response.data.email);
-          setnumber(response.data.phone);
-          setapikey(response.data.apikey);
+          setusername(response.data.data.username);
+          setname(response.data.data.name);
+          setemail(response.data.data.email);
+          setnumber(response.data.data.phone);
+          setapikey(response.data.data.apikey);
           setLoading(false);
 
         });

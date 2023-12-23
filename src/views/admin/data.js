@@ -12,6 +12,7 @@ import mtn from "../../mn.jpg";
 import glo from "../../go.jpg";
 import airtel from "../../ar.png";
 import mob from "../../9b.jpg";
+import { validatePhoneNumberAsync } from "nigeria-phone-number-validator";
 
 
 export default function Data() {
@@ -25,14 +26,15 @@ export default function Data() {
     const [refid,setrefid] = useState("");
     const [datass, setdatass]=useState([])
     const [number,setnumber] = useState("");
-    const baseURL2 = "https://server.savebills.com.ng/api/auth/data";
-    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/data";
+    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
     const [con, setcon] = useState("");
 
     const [selectedOption, setSelectedOption] = useState('');
     const [selectedOption1, setSelectedOption1] = useState('');
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const [dropdownVisible1, setDropdownVisible1] = useState(false);
+    const [resultnumber, setresultnumber] = useState("");
 
     const options = [
         { value: 'mtn-data', label: 'MTN ' , imageSrc: mtn },
@@ -74,7 +76,7 @@ export default function Data() {
         document.getElementById("pk").value = (sel.options[sel.selectedIndex].text);
     }
 
-    const baseURL = "https://server.savebills.com.ng/api/auth/buydata";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/buydata";
     let token=localStorage.getItem('dataKey');
     const [options1, setOptions1] = useState([]);
 
@@ -105,7 +107,7 @@ export default function Data() {
             .then(response => {
                 setError("");
                 setMessage(response);
-                setuserid(response.data.id);
+                setuserid(response.data.data.id);
                 if (response.data.status ==="0"){
                     window.location='login';
                 }
@@ -140,7 +142,7 @@ export default function Data() {
                 .then(response => {
                     setError("");
                     setloading(false);
-                    setdatass(response.data);
+                    setdatass(response.data.data.plan);
                     setSelectedOption(datass.value);
 
                     if (selected == "mtn-data") {
@@ -208,6 +210,14 @@ export default function Data() {
 
         if(id === "number"){
             setnumber(value);
+            if (value.length>=11) {
+
+                validatePhoneNumberAsync(value).then((result) => {
+                    console.log(result);
+                    setresultnumber(result.telco);
+                    // { telco: "MTN", isValid: true }
+                });
+            }
         }
         if(id === "productid"){
             setproductid(value);
@@ -228,7 +238,7 @@ export default function Data() {
         try {
             Swal.fire({
                 title: 'Are you sure?',
-                text: `Do you want to buy ${handleSelectOption} on ${document.getElementById("number").value}?`,
+                text: `Do you want to buy ${document.getElementById("productid").options[document.getElementById("productid").selectedIndex].text} on ${document.getElementById("number").value}?`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -272,7 +282,7 @@ export default function Data() {
                             setMessage(response.data.message);
                             Swal.fire({
                                 title: "Success",
-                                text: response.data.message,
+                                text: response.data.data.message,
                                 icon: "success",
                                 confirmButtonText: "OK",
                             })
@@ -286,7 +296,7 @@ export default function Data() {
             console.log(e);
             console.log("e.data");
             console.log(e.data);
-            setError("An error occured. Check your input and try again");
+            setError("An error occurred. Check your input and try again");
         }
     }
 
@@ -432,6 +442,10 @@ export default function Data() {
 
                                             </div>
                                         </div>
+                                        {resultnumber != "" ?
+                                            <div className="alert alert-success text-white">
+                                                Network Provider: {resultnumber}
+                                            </div>:true}
                                     </div>
                                     <button type="button" onClick={handleSubmit}
                                             className="submit-btn">

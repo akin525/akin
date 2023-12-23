@@ -23,8 +23,8 @@ import ReachargeDropdown from "../Dropdowns/ReachargeDropdown";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
-  const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
-  const baseURL1 = "https://server.savebills.com.ng/api/auth/signout";
+  const baseURL = "https://bills.sammighty.com.ng/api/auth/dashboard";
+  const baseURL1 = "https://bills.sammighty.com.ng/api/auth/signout";
 
 
   const [totaldeposit, setTotaldeposit] = useState("0");
@@ -105,19 +105,19 @@ export default function Sidebar() {
           if (response.data.status === "0") {
             window.location = 'login';
           }
-          setusername(response.data.username);
-          setName(response.data.username);
-          setBalance(response.data.wallet);
-          setName(response.data.name);
-          setTotalbill(response.data.totalbill);
-          setTotaldeposit(response.data.totaldeposit);
-          setall(response.data.bills);
-          setapikey(response.data.apikey);
+          setusername(response.data.data.username);
+          setName(response.data.data.username);
+          setBalance(response.data.data.wallet);
+          setName(response.data.data.name);
+          setTotalbill(response.data.data.totalbill);
+          setTotaldeposit(response.data.data.totaldeposit);
+          setall(response.data.data.bills);
+          setapikey(response.data.data.apikey);
           console.log(apikey);
-          setMessage(response.data.message);
+          setMessage(response.data.data.message);
 
 
-          setPost(response.data);
+          setPost(response.data.data);
         });
 
   }, []);
@@ -209,9 +209,9 @@ export default function Sidebar() {
                       <li className="active">
                         <Link to="/fund" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Fund Wallet</span></Link>
                       </li>
-                      {/*<li className="active">*/}
-                      {/*  <Link to="/verifyid" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Verify Fund</span></Link>*/}
-                      {/*</li>*/}
+                      <li className="active">
+                        <Link to="/verifyid" onClick={handleMenuClick} ><i className="fa fa-money white_color"></i> <span>Verify Fund</span></Link>
+                      </li>
                       <li className="active">
                         <Link to="/settings" onClick={handleMenuClick}  ><i className="fa fa-user white_color"></i> <span>Profile</span></Link>
                       </li>

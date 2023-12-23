@@ -28,7 +28,7 @@ export default function Dashboard() {
         }, 2000);
     }, []);
 
-    const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/dashboard";
     const refer1="http://savebills.com.ng/auth/register?refer=";
     const regene="https://admin.savebills.com.ng/api/auth/newaccount1";
 
@@ -85,20 +85,20 @@ export default function Dashboard() {
                     window.location='/login';
                 }
                 // console.log(response.data);
-                setusername(response.data.username);
-                setName(response.data.username);
-                setEmail(response.data.email);
-                setBalance(response.data.wallet);
-                setTotalbill(response.data.totalbill);
-                setTotaldeposit(response.data.totaldeposit);
-                setall(response.data.bills);
-                setallock(response.data.allock);
-                setaccount_number(response.data.account_number);
-                setaccount_name(response.data.account_name);
-                setBank(response.data.bank1)
-                setbonus(response.data.referbonus);
-                setnoti(response.data.noti);
-                setapikey(response.data.apikey);
+                setusername(response.data.data.username);
+                setName(response.data.data.username);
+                setEmail(response.data.data.email);
+                setBalance(response.data.data.wallet);
+                setTotalbill(response.data.data.totalbill);
+                setTotaldeposit(response.data.data.totaldeposit);
+                setall(response.data.data.bills);
+                setallock(response.data.data.allock);
+                setaccount_number(response.data.data.account_number);
+                setaccount_name(response.data.data.account_name);
+                setBank(response.data.data.bank1)
+                setbonus(response.data.data.referbonus);
+                setnoti(response.data.data.noti);
+                setapikey(response.data.data.apikey);
 
                 setMessage(response.data.message);
 

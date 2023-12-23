@@ -1,5 +1,5 @@
 
-
+import { validatePhoneNumberAsync } from "nigeria-phone-number-validator";
 import React, {useState} from "react";
 import axios from "axios";
 import swal from "sweetalert";
@@ -18,14 +18,15 @@ export default function Airtime() {
     const [network, setnetwork] = useState("");
     const [con, setcon] = useState("");
     const [amount, setamount] = useState("");
-    const [error, setError] = useState("");
+    const [error, setError] = useState(null);
     const [message, setMessage] = useState("");
+    const [resultnumber, setresultnumber] = useState("");
     const [userid, setuserid] = useState("");
     const [number,setnumber] = useState("");
     const [refid,setrefid] = useState("");
-    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
     const [loading, setloading]=useState(false);
-    const baseURL = "https://server.savebills.com.ng/api/auth/airtime";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/airtime";
     let token=localStorage.getItem('dataKey');
     const [selectedOption, setSelectedOption] = useState('');
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -84,7 +85,7 @@ console.log()
             .then(response => {
                 setError("");
                 setMessage(response);
-                setuserid(response.data.id);
+                setuserid(response.data.data.id);
                 if (response.data.status ==="0"){
                     window.location='login';
                 }
@@ -99,6 +100,7 @@ console.log()
             evt.target.classList.add('activeLoading');
         })
     })
+
     const handleInputChange = (e) => {
         const {id , value} = e.target;
 
@@ -110,6 +112,20 @@ console.log()
         }
         if(id === "number"){
             setnumber(value);
+            if (value.length===11) {
+
+                try {
+                    validatePhoneNumberAsync(value).then((result) => {
+                        console.log(result);
+                        setresultnumber(result)
+                        // { telco: "MTN", isValid: true }
+                    });
+                } catch (error) {
+                    // react to error
+                    setError(error.message);
+
+                }
+            }
         }
 
 
@@ -169,7 +185,7 @@ console.log()
                             // const [cookies, setCookie] = useCookies(response.data.username);
                             Swal.fire({
                                 title: "Success",
-                                text: response.data.message,
+                                text: response.data.data.message,
                                 icon: "success",
                                 confirmButtonText: "OK",
                             })
@@ -302,6 +318,15 @@ console.log()
                                                     right: "4%"
                                                 }} onClick={pick}></i>:true}
                                             </div>
+                                            {resultnumber.telco?
+                                            <div className="alert alert-success text-white">
+                                           Network Provider: {resultnumber.telco}
+                                            </div>:true}
+                                            {error && (
+                                                <div className="alert alert-danger text-white">
+                                                    Error: {error}
+                                                </div>
+                                            )}
                                         </div>
                                         <div className="w-full ">
                                             <div className="relative w-full mb-3">
@@ -321,10 +346,11 @@ console.log()
                                             </div>
                                         </div>
                                     </div>
+                                    {resultnumber != "" ?
                                     <button type="button" onClick={handleSubmit}
                                             className="submit-btn">
                                         Buy Now
-                                    </button>
+                                    </button>:true}
                                     <hr className="mt-6 border-b-1 border-blueGray-300"/>
                                 </form>
                             </div>

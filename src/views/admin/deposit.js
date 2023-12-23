@@ -17,14 +17,14 @@ export default function Deposit({color}) {
     const [id,setid] = useState("");
     const [datass, setdatass]=useState([])
     const [amount,setamount] = useState("");
-    const baseURL2 = "https://server.savebills.com.ng/api/auth/alldeposit";
-    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/alldeposit";
+    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
     const [currentPage, setCurrentPage] = useState(0);
     const perPage = 10; // Number of items to display per page
     const [searchTerm, setSearchTerm] = useState('');
 
 
-    const baseURL = "https://server.savebills.com.ng/api/auth/buydata";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/buydata";
     let token=localStorage.getItem('dataKey');
 
     React.useEffect(() => {

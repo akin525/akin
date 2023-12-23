@@ -14,9 +14,9 @@ import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
 import CardStats from "../../components/Cards/CardStats";
 
 export default function Dashboard() {
-    const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
-    const baseURLFUND = "https://sandbox-api-d.squadco.com/transaction/initiate";
-    const baseURL2 = "https://server.savebills.com.ng/api/auth/fund";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURLFUND = "https://api-d.squadco.com/transaction/initiate";
+    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/fund";
     const [account_number, setaccount_number] = useState("0");
     const [account_number1, setaccount_number1] = useState("0");
     const [account_name, setaccount_name] = useState("0");
@@ -31,7 +31,7 @@ export default function Dashboard() {
     // const [refid,setrefid] = useState("");
     const [loading, setLoading] = useState(false);
     let token=localStorage.getItem('dataKey');
-   const tokenfun="sandbox_sk_1e60156e0e029ec62daa87e91f5a3b0f1a0923246bec";
+   const tokenfun="sk_debcbc76a126689ea4780e37f217e5f75bcaf40e";
   const refid="Fund"+Math.floor((Math.random() * 1000000000) + 1);
 
 
@@ -52,22 +52,22 @@ export default function Dashboard() {
                 if (response.data.status ==="0"){
                     window.location='auth/login';
                 }
-                console.log(response.data);
-                setName(response.data.username);
-                setaccount_number(response.data.account_number);
-                setaccount_number1(response.data.account_number1);
-                setaccount_name(response.data.account_name);
-                setaccount_name1(response.data.account_name1);
-                setuserid(response.data.id);
-                setemail(response.data.email);
-                if (response.data.bank1==null) {
+                console.log(response.data.data);
+                setName(response.data.data.username);
+                setaccount_number(response.data.data.account_number);
+                setaccount_number1(response.data.data.account_number1);
+                setaccount_name(response.data.data.account_name);
+                setaccount_name1(response.data.data.account_name1);
+                setuserid(response.data.data.id);
+                setemail(response.data.data.email);
+                if (response.data.data.bank1==null) {
                     setbank('VFD Microfinance Bank');
 
                 }else {
-                    setbank(response.data.bank1);
+                    setbank(response.data.data.bank1);
                 }
 
-                setMessage(response.data.message);
+                setMessage(response.data.data.message);
 
                 setLoading(false);
             });
@@ -124,11 +124,10 @@ export default function Dashboard() {
                                 initiate_type: "inline",
                                 transaction_ref:refid,
                                 callback_url:"https://savebills.com.ng/verify",
-                                payment_channel:['card', 'bank' , 'ussd','transfer'],
                             },{
                                 headers:{
-                                    Authorization: `Bearer ${tokenfun}`,
-                                    'Cache-Control': 'no-cache'
+                                    'Authorization': 'Bearer sk_61de77ec58f5d4494f922d7be279917c3dea3149',
+                                    'Content-Type': 'application/json'
                                 },
 
                             }).then(response => {
@@ -215,10 +214,10 @@ export default function Dashboard() {
                                             className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 m-2">
                                         Fund With transfer
                                     </button>
-                                    {/*<button type="button" onClick={handleSubmit1}*/}
-                                    {/*        className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">*/}
-                                    {/*    Fund With card*/}
-                                    {/*</button>*/}
+                                    <button type="button" onClick={handleSubmit1}
+                                            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                                        Fund With card
+                                    </button>
                                     {/*<button type="button" onClick={handleSubmit1}*/}
                                     {/*        className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">*/}
                                     {/*    Fund With Card*/}

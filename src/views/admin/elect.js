@@ -17,7 +17,7 @@ export default function Elect() {
     const [refid,setrefid] = useState("");
     const [amount, setamount]=useState("")
     const [number,setnumber] = useState("");
-    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
+    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
     function myNewFunction(sel) {
         // alert(sel.options[sel.selectedIndex].id);
         document.getElementById("po").value = (sel.options[sel.selectedIndex].id);
@@ -31,8 +31,8 @@ export default function Elect() {
     })
     const [loading, setLoading] = useState(false);
 
-    const baseURL = "https://server.savebills.com.ng/api/auth/verifyelect";
-    const baseURL3 = "https://server.savebills.com.ng/api/auth/buyelect";
+    const baseURL = "https://bills.sammighty.com.ng/api/auth/verifyelect";
+    const baseURL3 = "https://bills.sammighty.com.ng/api/auth/buyelect";
     let token=localStorage.getItem('dataKey');
     function myCallback(data) {
     }
