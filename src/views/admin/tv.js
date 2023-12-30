@@ -78,7 +78,7 @@ export default function Tv() {
                 } )
                 .then(response => {
                     setError("");
-                    setdatass(response.data);
+                    setdatass(response.data.data.plan);
 
                     if (response.data.status === "0") {
                         setError(response.data.message);

@@ -5,20 +5,18 @@ import axios from "axios";
 import swal from "sweetalert";
 import { Link } from "react-router-dom";
 
-import ig from 'ba1.png';
-import spin1 from 'spin.png';
-import goo from 'google.png';
-import sp from 'sp.png';
-import CardLineChart from "components/Cards/CardLineChart.js";
-import CardBarChart from "components/Cards/CardBarChart.js";
-import CardPageVisits from "components/Cards/CardPageVisits.js";
-import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
-import CardStats from "../../components/Cards/CardStats";
-import gh from "../../lg.png";
+
 import dev from 'deve.png';
 import safe from '../../sf.jpg';
 import {toast} from "react-toastify";
-
+import airtime from '../../airtime.svg';
+import dat from '../../data.png';
+import tv from '../../tv.png';
+import ele from '../../ele.png';
+import wae from '../../wae.jpeg';
+import nec from '../../nec.jpeg';
+import give from '../../give.png';
+import fund from '../../fund.jpeg';
 export default function Dashboard() {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
@@ -108,46 +106,6 @@ export default function Dashboard() {
             });
 
     }, []);
-    const profile= ()=>{
-        try {
-            {
-                if(token && token.login)
-                {
-                    this.setState({login:true, token:token})
-                }else {
-                    window.location='login.js';
-                }
-            }
-
-        }catch (e) {
-            console.log(e);
-            console.log("e.data");
-            console.log(e.data);
-            setError("An error occured. Check your input and try again");
-        }
-
-    }
-    function myFunction() {
-        /* Get the text field */
-        var copyText = document.getElementById("myInput");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-        /* Copy the text inside the text field */
-        navigator.clipboard.writeText(copyText.value);
-
-        /* Alert the copied text */
-        alert(copyText.value);
-    }
-    const a= {
-        margin: 5,
-
-    };
-    const ul={
-        listStyleType:'square',
-    };
     const handleSubmitacct  = async () =>  {
         setLoading(true);
         try {
@@ -201,11 +159,164 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                    <div className="alert alert-info alert-dismissible alert-alt fade show text-white">
-                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
-                        </button>
-                        <strong className="text-white">Alert!</strong> {noti}.
+                <div className="">
+                    <div className="">
+                        <div className="col-md-12">
+
+                            <div className="full-height">
+                                <div className="">
+                                    <div className="card-title"><span
+                                        id="greet"><b>Welcome back {username}</b></span>
+                                    </div>
+                                    <hr></hr>
+                                        <p style={{margin:"10px", backgroundImage:"linear-gradient(45deg,#477f9a,#465abdd9)",backgroundColor:"#ff0000",borderRadius:"10px",color:"white",padding:"7px",fontSize:"14px"}}>
+                                            <span style={{color:"orange"}}><b>**NEW**</b></span>&nbsp; Own a
+                                            savebills.com.ng retailer website and retail all our services; Such as
+                                            DATA, Recharge cards printing, AIRTIME and BILLS Payment. <Link
+                                            className="w3-btn  w3-border w3-round-large" t0={"/vtu"}
+                                            style={{backgroundColor:"white",color:"blue"}}>Click Here</Link></p>
+
+                                </div>
+                                <b><b>
+
+                                    <marquee
+                                        style={{backgroundColor: "white", color:"#d1026d", padding: "10px", fontSize: "15px"}}> MTN
+                                        SME NOW AVAILABLE @ cheap price
+                                    </marquee>
+
+                                </b></b></div>
+                            <b><b>
+
+
+                            </b></b></div>
+
                     </div>
+                </div>
+
+
+                <div className="row">
+
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <Link to="/data">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                                                          <span style={{fontSize: "30px"}}>
+
+                                 <img width="50"
+                                      src={dat}/>
+                             </span>
+                                    {/*{{--                            <div class="h6  text-dark">Data</div>--}}*/}
+                                    <small>Data</small>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <Link to="/airtime">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                                                         <span style={{fontSize: "30px"}}>
+
+                                 <img width="50"
+                                      src={airtime}/>
+                             </span>
+                                    <small>Airtime</small>
+                                    {/*{{--                            <div class="h6  text-dark">Airtime</div>--}}*/}
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <Link to="/tv">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                                    <span style={{fontSize: "30px"}}>
+                                 <img width="50"
+                                      src={tv}/>
+                             </span>
+                                    <div className="h6 m-2 text-dark">Tv</div>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <Link to="/elect">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                             <span style={{fontSize: "30px"}}>
+                                 <img width="50"
+                                      src={ele}/>
+                             </span>
+                                    <small>Electricity</small>
+                                    {/*{{--                            <div class="h6 m-2 text-dark">Electricity</div>--}}*/}
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <Link to="/fund">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                             <span style={{fontSize: "30px"}}>
+                                 <img width="50"
+                                      src={fund}/>
+                             </span>
+                                    {/*{{--                            <div class="h6 m-2 text-dark">Fund Wallet</div>--}}*/}
+                                    <small>Fund Wallet</small>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <a href="#">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                             <span style={{fontSize: "30px"}}>
+                                 <img width="50"
+                                      src={give}/>
+                             </span>
+                                    <small>Giveaway</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <a href="#">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                             <span style={{fontSize: "30px"}}>
+                                 <img width="50"
+                                      src={wae}/>
+                             </span>
+                                    <smalls>Waec</smalls>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div className="col-4 col-sm-3 col-lg-3">
+                        <a href="#">
+                            <div className="card">
+                                <div className="card-body p-3 text-center">
+                             <span style={{fontSize: "30px"}}>
+                                 <img width="50"
+                                      src={nec}/>
+                             </span>
+                                    <small>Neco</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+                {/*<div className="alert alert-info alert-dismissible alert-alt fade show text-white">*/}
+                    {/*    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="btn-close">*/}
+                    {/*    </button>*/}
+                    {/*    <strong className="text-white">Alert!</strong> {noti}.*/}
+                    {/*</div>*/}
+
+
                 {loading ? <div className="overlay">
                         <div className="loader"></div>
                     </div> :
@@ -353,138 +464,6 @@ export default function Dashboard() {
                             </div>
                         </div>
                         </div>
-                    <div className="col-xl-12">
-                    <div className="card bg-secondary analytics-card">
-                    <div className="card-body mt-4 pb-1">
-                    <div className="row align-items-center">
-                    <div className="col-xl-2">
-                    <h3 className="mb-3 text-white">Solution</h3>
-                    <p className="mb-0  pb-4 text-white">Validate all <br/>pending transaction</p>
-                    </div>
-                    <div className="col-xl-10">
-                    <div className="row">
-                        <div className="col-xl-2 col-sm-4 col-6">
-                            <div className="card ov-card">
-                                <div className="card-body">
-                                    <Link to="/airtime" >
-                                        <div className="ana-box">
-                                            <div className="ic-n-bx">
-                                                <div className="icon-box bg-success">
-                                                    <i className="fa fa-brands fa-mobile-phone text-white"></i>
-                                                </div>
-                                            </div>
-                                            <div className="anta-data">
-                                                <h5>Airtime</h5>
-                                                <span>Purchase</span>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    <div className="col-xl-2 col-sm-4 col-6">
-                    <div className="card ov-card">
-                    <div className="card-body">
-                    <Link to="/data">
-                    <div className="ana-box">
-                    <div className="ic-n-bx">
-                    <div className="icon-box bg-success">
-                    <i className="fa fa-book text-white"></i>
-                    </div>
-                    </div>
-                    <div className="anta-data">
-                    <h5>Data</h5>
-                    <span>Buy Data</span>
-                    </div>
-                    </div>
-                    </Link>
-                    </div>
-                    </div>
-                    </div>
-                    {/*<div className="col-xl-2 col-sm-4 col-6">*/}
-                    {/*<div className="card ov-card">*/}
-                    {/*<div className="card-body">*/}
-                    {/*<Link to="/fund">*/}
-                    {/*<div className="ana-box">*/}
-                    {/*<div className="ic-n-bx">*/}
-                    {/*<div className="icon-box bg-success">*/}
-                    {/*<i className="fa fa-brands fa-money text-white"></i>*/}
-                    {/*</div>*/}
-                    {/*</div>*/}
-                    {/*<div className="anta-data">*/}
-                    {/*<h5>Fund</h5>*/}
-                    {/*<span>wallet</span>*/}
-                    {/*</div>*/}
-                    {/*</div>*/}
-                    {/*</Link>*/}
-                    {/*</div>*/}
-                    {/*</div>*/}
-                    {/*</div>*/}
-                    <div className="col-xl-2 col-sm-4 col-6">
-                    <div className="card ov-card">
-                    <div className="card-body">
-                    <Link to="/tv">
-                    <div className="ana-box">
-                    <div className="ic-n-bx">
-                    <div className="icon-box bg-success">
-                    <i className="fa fa-brands fa-amazon text-white"></i>
-                    </div>
-                    </div>
-                    <div className="anta-data">
-                    <h5>Cable Tv</h5>
-                    <span>Subscription</span>
-                    </div>
-                    </div>
-                    </Link>
-                    </div>
-                    </div>
-                    </div>
-                    <div className="col-xl-2 col-sm-4 col-6">
-                    <div className="card ov-card">
-                    <div className="card-body">
-                    <Link to="/upgrade" href="{{url('verifybill')}}">
-                    <div className="ana-box">
-                    <div className="ic-n-bx">
-                    <div className="icon-box bg-success">
-                    <i className=" fa fa-brands fa-bookmark text-white"></i>
-                    </div>
-                    </div>
-                    <div className="anta-data">
-                    <h5>Reseller</h5>
-                    <span>Upgrade</span>
-                    </div>
-                    </div>
-                    </Link>
-                    </div>
-                    </div>
-                    </div>
-                    <div className="col-xl-2 col-sm-4 col-6">
-                    <div className="card ov-card">
-                    <div className="card-body">
-                    <Link to="/elect" >
-                    <div className="ana-box">
-                    <div className="ic-n-bx">
-                    <div className="icon-box bg-success">
-                    <i className="fa fa-brands fa-money text-white"></i>
-                    </div>
-                    </div>
-                    <div className="anta-data">
-                    <h5>Electricity</h5>
-                    <span>Purchase</span>
-                    </div>
-                    </div>
-                    </Link>
-                    </div>
-                    </div>
-                    </div>
-
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
                     </div>
                 }
             </div>
