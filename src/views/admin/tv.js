@@ -19,8 +19,8 @@ export default function Tv() {
     const [refid,setrefid] = useState("");
     const [datass, setdatass]=useState([])
     const [number,setnumber] = useState("");
-    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/tv";
-    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURL2 = "https://server.savebills.com.ng/api/auth/tv";
+    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
     const btns = document.querySelectorAll('button');
     const [loading, setLoading] = useState(false);
 
@@ -29,8 +29,8 @@ export default function Tv() {
             evt.target.classList.add('activeLoading');
         })
     })
-    const baseURL = "https://bills.sammighty.com.ng/api/auth/verifytv";
-    const baseURL3 = "https://bills.sammighty.com.ng/api/auth/buytv";
+    const baseURL = "https://server.savebills.com.ng/api/auth/verifytv";
+    const baseURL3 = "https://server.savebills.com.ng/api/auth/buytv";
     let token=localStorage.getItem('dataKey');
     const [con, setcon] = useState("");
 

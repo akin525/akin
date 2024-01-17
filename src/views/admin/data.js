@@ -26,8 +26,8 @@ export default function Data() {
     const [refid,setrefid] = useState("");
     const [datass, setdatass]=useState([])
     const [number,setnumber] = useState("");
-    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/data";
-    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURL2 = "https://server.savebills.com.ng/api/auth/data";
+    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
     const [con, setcon] = useState("");
 
     const [selectedOption, setSelectedOption] = useState('');
@@ -76,7 +76,7 @@ export default function Data() {
         document.getElementById("pk").value = (sel.options[sel.selectedIndex].text);
     }
 
-    const baseURL = "https://bills.sammighty.com.ng/api/auth/buydata";
+    const baseURL = "https://server.savebills.com.ng/api/auth/buydata";
     let token=localStorage.getItem('dataKey');
     const [options1, setOptions1] = useState([]);
 

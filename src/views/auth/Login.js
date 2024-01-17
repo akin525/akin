@@ -15,8 +15,8 @@ export default function Login() {
   const [message, setMessage] = useState("");
   const [password,setPassword] = useState("");
   const [isloading, setisloading]=useState(false);
-  const baseURL = "https://bills.sammighty.com.ng/api/auth/signin";
-  const baseURL1 = "https://bills.sammighty.com.ng/api/auth/google";
+  const baseURL = "https://server.savebills.com.ng/api/auth/signin";
+  const baseURL1 = "https://server.savebills.com.ng/api/auth/google";
   const [loading, setloading]=useState(false);
 
   const [con, setcon] = useState("");

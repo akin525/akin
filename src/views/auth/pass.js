@@ -11,7 +11,7 @@ export default function Login() {
   const [message, setMessage] = useState("");
   const [password,setPassword] = useState("");
   const [isloading, setisloading]=useState(false);
-  const baseURL = "https://bills.sammighty.com.ng/api/auth/pass";
+  const baseURL = "https://server.savebills.com.ng/api/auth/pass";
 
   const btns = document.querySelectorAll('button');
   btns.forEach((items)=>{

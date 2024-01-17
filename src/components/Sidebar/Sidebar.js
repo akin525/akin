@@ -23,8 +23,8 @@ import ReachargeDropdown from "../Dropdowns/ReachargeDropdown";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
-  const baseURL = "https://bills.sammighty.com.ng/api/auth/dashboard";
-  const baseURL1 = "https://bills.sammighty.com.ng/api/auth/signout";
+  const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
+  const baseURL1 = "https://server.savebills.com.ng/api/auth/signout";
 
 
   const [totaldeposit, setTotaldeposit] = useState("0");

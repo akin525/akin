@@ -20,16 +20,16 @@ export default function Tv() {
     const [bank, setbank]=useState([]);
     const [amount, setamount]=useState("");
     const [number,setnumber] = useState("");
-    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/bank";
-    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURL2 = "https://server.savebills.com.ng/api/auth/bank";
+    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
     const btns = document.querySelectorAll('button');
     btns.forEach((items)=>{
         items.addEventListener('click',(evt)=>{
             evt.target.classList.add('activeLoading');
         })
     })
-    const baseURL = "https://bills.sammighty.com.ng/api/auth/verify";
-    const baseURL3 = "https://bills.sammighty.com.ng/api/auth/with";
+    const baseURL = "https://server.savebills.com.ng/api/auth/verify";
+    const baseURL3 = "https://server.savebills.com.ng/api/auth/with";
     let token=localStorage.getItem('dataKey');
 
     React.useEffect(() => {

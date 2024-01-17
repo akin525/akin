@@ -17,9 +17,9 @@ export default function Vtu() {
     const [userid, setuserid] = useState("");
     const [number,setnumber] = useState("");
     const [refid,setrefid] = useState("");
-    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
     const [loading, setloading]=useState(false);
-    const baseURL = "https://bills.sammighty.com.ng/api/auth/airtime";
+    const baseURL = "https://server.savebills.com.ng/api/auth/airtime";
     let token=localStorage.getItem('dataKey');
 
     function myCallback(data) {

@@ -14,9 +14,9 @@ import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
 import CardStats from "../../components/Cards/CardStats";
 
 export default function Verifyf() {
-    const baseURL = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
     const baseURLFUND = "https://sandbox-api-d.squadco.com/transaction/initiate";
-    const baseURL2 = "https://bills.sammighty.com.ng/api/auth/verifyfund";
+    const baseURL2 = "https://server.savebills.com.ng/api/auth/verifyfund";
     const [account_number, setaccount_number] = useState("0");
     const [account_number1, setaccount_number1] = useState("0");
     const [account_name, setaccount_name] = useState("0");

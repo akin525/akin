@@ -26,9 +26,9 @@ export default function Dashboard() {
         }, 2000);
     }, []);
 
-    const baseURL = "https://bills.sammighty.com.ng/api/auth/dashboard";
-    const refer1="http://savebills.com.ng/auth/register?refer=";
-    const regene="https://admin.savebills.com.ng/api/auth/newaccount1";
+    const baseURL = "https://server.savebills.com.ng/api/auth/dashboard";
+    const refer1="https://server.savebills.com.ng/api/auth/register?refer=";
+    const regene="https://server.savebills.com.ng/api/auth/newaccount1";
 
 
     const [totaldeposit, setTotaldeposit] = useState("0");

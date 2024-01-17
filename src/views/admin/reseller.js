@@ -18,9 +18,9 @@ export default function Reseller() {
     const [number,setnumber] = useState("");
     const [refid,setrefid] = useState("");
     const [apikey, setapikey] = useState("");
-    const baseURL1 = "https://bills.sammighty.com.ng/api/auth/dashboard";
+    const baseURL1 = "https://server.savebills.com.ng/api/auth/dashboard";
     const [loading, setloading]=useState(false);
-    const baseURL = "https://bills.sammighty.com.ng/api/auth/upgrade";
+    const baseURL = "https://server.savebills.com.ng/api/auth/upgrade";
     let token=localStorage.getItem('dataKey');
 
     function myCallback(data) {
